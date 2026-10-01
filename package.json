@@ -1,0 +1,6 @@
+{
+  "name": "calculadora-juros-compostos",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test" }
+}

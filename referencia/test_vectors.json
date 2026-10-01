@@ -1,0 +1,1432 @@
+{
+ "tolerancia": 0.01,
+ "casos": [
+  {
+   "nome": "ancora_valor_final_1000_por_mes",
+   "tipo": "simular",
+   "entrada": {
+    "pv": 0.0,
+    "pmt0": 1000,
+    "n": 240,
+    "retorno_anual": 0.11,
+    "inflacao_anual": 0.0,
+    "reajuste_anual": 0.0,
+    "regime": "isento",
+    "mes_inicio": 1,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "resumo": {
+     "bruto_nominal": 808544.9282239515,
+     "investido_nominal": 240000.0,
+     "investido_real": 240000.0,
+     "imposto_resgate": 0.0,
+     "come_cotas_pagos": 0.0,
+     "liquido_nominal": 808544.9282239515,
+     "liquido_real": 808544.9282239515,
+     "bruto_real": 808544.9282239515,
+     "deflator": 1.0
+    },
+    "anos": {
+     "1": {
+      "bruto": 12593.602200871288,
+      "liquido": 12593.602200871288,
+      "liquido_real": 12593.602200871288,
+      "investido": 12000.0,
+      "investido_real": 12000.0
+     },
+     "2": {
+      "bruto": 26572.500643838415,
+      "liquido": 26572.500643838415,
+      "liquido_real": 26572.500643838415,
+      "investido": 24000.0,
+      "investido_real": 24000.0
+     },
+     "3": {
+      "bruto": 42089.077915531925,
+      "liquido": 42089.077915531925,
+      "liquido_real": 42089.077915531925,
+      "investido": 36000.0,
+      "investido_real": 36000.0
+     },
+     "4": {
+      "bruto": 59312.47868711173,
+      "liquido": 59312.47868711173,
+      "liquido_real": 59312.47868711173,
+      "investido": 48000.0,
+      "investido_real": 48000.0
+     },
+     "5": {
+      "bruto": 78430.45354356531,
+      "liquido": 78430.45354356531,
+      "liquido_real": 78430.45354356531,
+      "investido": 60000.0,
+      "investido_real": 60000.0
+     },
+     "6": {
+      "bruto": 99651.4056342288,
+      "liquido": 99651.4056342288,
+      "liquido_real": 99651.4056342288,
+      "investido": 72000.0,
+      "investido_real": 72000.0
+     },
+     "7": {
+      "bruto": 123206.66245486529,
+      "liquido": 123206.66245486529,
+      "liquido_real": 123206.66245486529,
+      "investido": 84000.0,
+      "investido_real": 84000.0
+     },
+     "8": {
+      "bruto": 149352.99752577176,
+      "liquido": 149352.99752577176,
+      "liquido_real": 149352.99752577176,
+      "investido": 96000.0,
+      "investido_real": 96000.0
+     },
+     "9": {
+      "bruto": 178375.4294544779,
+      "liquido": 178375.4294544779,
+      "liquido_real": 178375.4294544779,
+      "investido": 108000.0,
+      "investido_real": 108000.0
+     },
+     "10": {
+      "bruto": 210590.32889534178,
+      "liquido": 210590.32889534178,
+      "liquido_real": 210590.32889534178,
+      "investido": 120000.0,
+      "investido_real": 120000.0
+     },
+     "11": {
+      "bruto": 246348.8672747007,
+      "liquido": 246348.8672747007,
+      "liquido_real": 246348.8672747007,
+      "investido": 132000.0,
+      "investido_real": 132000.0
+     },
+     "12": {
+      "bruto": 286040.84487578913,
+      "liquido": 286040.84487578913,
+      "liquido_real": 286040.84487578913,
+      "investido": 144000.0,
+      "investido_real": 144000.0
+     },
+     "13": {
+      "bruto": 330098.9400129972,
+      "liquido": 330098.9400129972,
+      "liquido_real": 330098.9400129972,
+      "investido": 156000.0,
+      "investido_real": 156000.0
+     },
+     "14": {
+      "bruto": 379003.42561529804,
+      "liquido": 379003.42561529804,
+      "liquido_real": 379003.42561529804,
+      "investido": 168000.0,
+      "investido_real": 168000.0
+     },
+     "15": {
+      "bruto": 433287.4046338522,
+      "liquido": 433287.4046338522,
+      "liquido_real": 433287.4046338522,
+      "investido": 180000.0,
+      "investido_real": 180000.0
+     },
+     "16": {
+      "bruto": 493542.6213444472,
+      "liquido": 493542.6213444472,
+      "liquido_real": 493542.6213444472,
+      "investido": 192000.0,
+      "investido_real": 192000.0
+     },
+     "17": {
+      "bruto": 560425.9118932077,
+      "liquido": 560425.9118932077,
+      "liquido_real": 560425.9118932077,
+      "investido": 204000.0,
+      "investido_real": 204000.0
+     },
+     "18": {
+      "bruto": 634666.3644023318,
+      "liquido": 634666.3644023318,
+      "liquido_real": 634666.3644023318,
+      "investido": 216000.0,
+      "investido_real": 216000.0
+     },
+     "19": {
+      "bruto": 717073.2666874595,
+      "liquido": 717073.2666874595,
+      "liquido_real": 717073.2666874595,
+      "investido": 228000.0,
+      "investido_real": 228000.0
+     },
+     "20": {
+      "bruto": 808544.9282239515,
+      "liquido": 808544.9282239515,
+      "liquido_real": 808544.9282239515,
+      "investido": 240000.0,
+      "investido_real": 240000.0
+     }
+    }
+   },
+   "ancora": 808544.93
+  },
+  {
+   "nome": "ancora_aporte_para_2M",
+   "tipo": "resolver_aporte",
+   "alvo_liquido_real": 2000000,
+   "entrada": {
+    "pv": 0.0,
+    "pmt0": 0.0,
+    "n": 240,
+    "retorno_anual": 0.11,
+    "inflacao_anual": 0.0,
+    "reajuste_anual": 0.0,
+    "regime": "isento",
+    "mes_inicio": 1,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "pmt0": 2473.579302999526
+   },
+   "ancora": 2473.58
+  },
+  {
+   "nome": "1000_mes_20a_isento",
+   "tipo": "simular",
+   "entrada": {
+    "pv": 0.0,
+    "pmt0": 1000,
+    "n": 240,
+    "retorno_anual": 0.11,
+    "inflacao_anual": 0.0,
+    "reajuste_anual": 0.0,
+    "regime": "isento",
+    "mes_inicio": 1,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "resumo": {
+     "bruto_nominal": 808544.9282239515,
+     "investido_nominal": 240000.0,
+     "investido_real": 240000.0,
+     "imposto_resgate": 0.0,
+     "come_cotas_pagos": 0.0,
+     "liquido_nominal": 808544.9282239515,
+     "liquido_real": 808544.9282239515,
+     "bruto_real": 808544.9282239515,
+     "deflator": 1.0
+    },
+    "anos": {
+     "1": {
+      "bruto": 12593.602200871288,
+      "liquido": 12593.602200871288,
+      "liquido_real": 12593.602200871288,
+      "investido": 12000.0,
+      "investido_real": 12000.0
+     },
+     "2": {
+      "bruto": 26572.500643838415,
+      "liquido": 26572.500643838415,
+      "liquido_real": 26572.500643838415,
+      "investido": 24000.0,
+      "investido_real": 24000.0
+     },
+     "3": {
+      "bruto": 42089.077915531925,
+      "liquido": 42089.077915531925,
+      "liquido_real": 42089.077915531925,
+      "investido": 36000.0,
+      "investido_real": 36000.0
+     },
+     "4": {
+      "bruto": 59312.47868711173,
+      "liquido": 59312.47868711173,
+      "liquido_real": 59312.47868711173,
+      "investido": 48000.0,
+      "investido_real": 48000.0
+     },
+     "5": {
+      "bruto": 78430.45354356531,
+      "liquido": 78430.45354356531,
+      "liquido_real": 78430.45354356531,
+      "investido": 60000.0,
+      "investido_real": 60000.0
+     },
+     "6": {
+      "bruto": 99651.4056342288,
+      "liquido": 99651.4056342288,
+      "liquido_real": 99651.4056342288,
+      "investido": 72000.0,
+      "investido_real": 72000.0
+     },
+     "7": {
+      "bruto": 123206.66245486529,
+      "liquido": 123206.66245486529,
+      "liquido_real": 123206.66245486529,
+      "investido": 84000.0,
+      "investido_real": 84000.0
+     },
+     "8": {
+      "bruto": 149352.99752577176,
+      "liquido": 149352.99752577176,
+      "liquido_real": 149352.99752577176,
+      "investido": 96000.0,
+      "investido_real": 96000.0
+     },
+     "9": {
+      "bruto": 178375.4294544779,
+      "liquido": 178375.4294544779,
+      "liquido_real": 178375.4294544779,
+      "investido": 108000.0,
+      "investido_real": 108000.0
+     },
+     "10": {
+      "bruto": 210590.32889534178,
+      "liquido": 210590.32889534178,
+      "liquido_real": 210590.32889534178,
+      "investido": 120000.0,
+      "investido_real": 120000.0
+     },
+     "11": {
+      "bruto": 246348.8672747007,
+      "liquido": 246348.8672747007,
+      "liquido_real": 246348.8672747007,
+      "investido": 132000.0,
+      "investido_real": 132000.0
+     },
+     "12": {
+      "bruto": 286040.84487578913,
+      "liquido": 286040.84487578913,
+      "liquido_real": 286040.84487578913,
+      "investido": 144000.0,
+      "investido_real": 144000.0
+     },
+     "13": {
+      "bruto": 330098.9400129972,
+      "liquido": 330098.9400129972,
+      "liquido_real": 330098.9400129972,
+      "investido": 156000.0,
+      "investido_real": 156000.0
+     },
+     "14": {
+      "bruto": 379003.42561529804,
+      "liquido": 379003.42561529804,
+      "liquido_real": 379003.42561529804,
+      "investido": 168000.0,
+      "investido_real": 168000.0
+     },
+     "15": {
+      "bruto": 433287.4046338522,
+      "liquido": 433287.4046338522,
+      "liquido_real": 433287.4046338522,
+      "investido": 180000.0,
+      "investido_real": 180000.0
+     },
+     "16": {
+      "bruto": 493542.6213444472,
+      "liquido": 493542.6213444472,
+      "liquido_real": 493542.6213444472,
+      "investido": 192000.0,
+      "investido_real": 192000.0
+     },
+     "17": {
+      "bruto": 560425.9118932077,
+      "liquido": 560425.9118932077,
+      "liquido_real": 560425.9118932077,
+      "investido": 204000.0,
+      "investido_real": 204000.0
+     },
+     "18": {
+      "bruto": 634666.3644023318,
+      "liquido": 634666.3644023318,
+      "liquido_real": 634666.3644023318,
+      "investido": 216000.0,
+      "investido_real": 216000.0
+     },
+     "19": {
+      "bruto": 717073.2666874595,
+      "liquido": 717073.2666874595,
+      "liquido_real": 717073.2666874595,
+      "investido": 228000.0,
+      "investido_real": 228000.0
+     },
+     "20": {
+      "bruto": 808544.9282239515,
+      "liquido": 808544.9282239515,
+      "liquido_real": 808544.9282239515,
+      "investido": 240000.0,
+      "investido_real": 240000.0
+     }
+    }
+   },
+   "ancora": null
+  },
+  {
+   "nome": "pv50k_aporte500_inflacao_isento",
+   "tipo": "simular",
+   "entrada": {
+    "pv": 50000,
+    "pmt0": 500,
+    "n": 180,
+    "retorno_anual": 0.12,
+    "inflacao_anual": 0.045,
+    "reajuste_anual": 0.045,
+    "regime": "isento",
+    "mes_inicio": 10,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "resumo": {
+     "bruto_nominal": 571990.9050098759,
+     "investido_nominal": 174704.32574548697,
+     "investido_real": 137886.6009047021,
+     "imposto_resgate": 0.0,
+     "come_cotas_pagos": 0.0,
+     "liquido_nominal": 571990.9050098759,
+     "liquido_real": 295559.39343729935,
+     "bruto_real": 295559.39343729935,
+     "deflator": 1.9352824430911528
+    },
+    "anos": {
+     "1": {
+      "bruto": 62323.248954176626,
+      "liquido": 62323.248954176626,
+      "liquido_real": 59639.47268342261,
+      "investido": 56000.0,
+      "investido_real": 55859.106726980135
+     },
+     "2": {
+      "bruto": 76409.83398579241,
+      "liquido": 76409.83398579241,
+      "liquido_real": 69970.773549866,
+      "investido": 62270.0,
+      "investido_real": 61718.21345396028
+     },
+     "3": {
+      "bruto": 92484.16000327225,
+      "liquido": 92484.16000327225,
+      "liquido_real": 81043.55533973835,
+      "investido": 68822.14999999997,
+      "investido_real": 67577.3201809404
+     },
+     "4": {
+      "bruto": 110798.13671011294,
+      "liquido": 110798.13671011294,
+      "liquido_real": 92911.034387257,
+      "investido": 75669.1467499999,
+      "investido_real": 73436.42690792054
+     },
+     "5": {
+      "bruto": 131634.5051095647,
+      "liquido": 131634.5051095647,
+      "liquido_real": 105630.24638076982,
+      "investido": 82824.25835374981,
+      "investido_real": 79295.53363490068
+     },
+     "6": {
+      "bruto": 155310.56435669135,
+      "liquido": 155310.56435669135,
+      "liquido_real": 119262.3204790802,
+      "investido": 90301.34997966862,
+      "investido_real": 85154.64036188083
+     },
+     "7": {
+      "bruto": 182182.3470520024,
+      "liquido": 182182.3470520024,
+      "liquido_real": 133872.77310119287,
+      "investido": 98114.91072875378,
+      "investido_real": 91013.74708886097
+     },
+     "8": {
+      "bruto": 212649.29684451377,
+      "liquido": 212649.29684451377,
+      "liquido_real": 149531.8228014477,
+      "investido": 106280.08171154762,
+      "investido_real": 96872.85381584111
+     },
+     "9": {
+      "bruto": 247159.50867870855,
+      "liquido": 247159.50867870855,
+      "liquido_real": 166314.72774334752,
+      "investido": 114812.68538856722,
+      "investido_real": 102731.96054282125
+     },
+     "10": {
+      "bruto": 286215.59926258546,
+      "liquido": 286215.59926258546,
+      "liquido_real": 184302.14739399633,
+      "investido": 123729.25623105274,
+      "investido_real": 108591.0672698014
+     },
+     "11": {
+      "bruto": 330381.283445937,
+      "liquido": 330381.283445937,
+      "liquido_real": 203580.5301774668,
+      "investido": 133047.07276145017,
+      "investido_real": 114450.17399678154
+     },
+     "12": {
+      "bruto": 380288.74128352304,
+      "liquido": 380288.74128352304,
+      "liquido_real": 224242.5289501813,
+      "investido": 142784.19103571548,
+      "investido_real": 120309.28072376168
+     },
+     "13": {
+      "bruto": 436646.870733703,
+      "liquido": 436646.870733703,
+      "liquido_real": 246387.44629510035,
+      "investido": 152959.47963232253,
+      "investido_real": 126168.38745074182
+     },
+     "14": {
+      "bruto": 500250.5323402318,
+      "liquido": 500250.5323402318,
+      "liquido_real": 270121.71177482227,
+      "investido": 163592.656215777,
+      "investido_real": 132027.49417772196
+     },
+     "15": {
+      "bruto": 571990.9050098759,
+      "liquido": 571990.9050098759,
+      "liquido_real": 295559.39343729935,
+      "investido": 174704.32574548697,
+      "investido_real": 137886.6009047021
+     }
+    }
+   },
+   "ancora": null
+  },
+  {
+   "nome": "aporte_2M_reais_de_hoje_isento",
+   "tipo": "resolver_aporte",
+   "alvo_liquido_real": 2000000,
+   "entrada": {
+    "pv": 0.0,
+    "pmt0": 0.0,
+    "n": 240,
+    "retorno_anual": 0.11,
+    "inflacao_anual": 0.045,
+    "reajuste_anual": 0.045,
+    "regime": "isento",
+    "mes_inicio": 1,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "pmt0": 4405.800383933606
+   },
+   "ancora": null
+  },
+  {
+   "nome": "1000_mes_20a_resgate_15",
+   "tipo": "simular",
+   "entrada": {
+    "pv": 0.0,
+    "pmt0": 1000,
+    "n": 240,
+    "retorno_anual": 0.11,
+    "inflacao_anual": 0.0,
+    "reajuste_anual": 0.0,
+    "regime": "resgate_15",
+    "mes_inicio": 1,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "resumo": {
+     "bruto_nominal": 808544.9282239515,
+     "investido_nominal": 240000.0,
+     "investido_real": 240000.0,
+     "imposto_resgate": 85281.73923359271,
+     "come_cotas_pagos": 0.0,
+     "liquido_nominal": 723263.1889903587,
+     "liquido_real": 723263.1889903587,
+     "bruto_real": 808544.9282239515,
+     "deflator": 1.0
+    },
+    "anos": {
+     "1": {
+      "bruto": 12593.602200871288,
+      "liquido": 12504.561870740596,
+      "liquido_real": 12504.561870740596,
+      "investido": 12000.0,
+      "investido_real": 12000.0
+     },
+     "2": {
+      "bruto": 26572.500643838415,
+      "liquido": 26186.625547262654,
+      "liquido_real": 26186.625547262654,
+      "investido": 24000.0,
+      "investido_real": 24000.0
+     },
+     "3": {
+      "bruto": 42089.077915531925,
+      "liquido": 41175.71622820214,
+      "liquido_real": 41175.71622820214,
+      "investido": 36000.0,
+      "investido_real": 36000.0
+     },
+     "4": {
+      "bruto": 59312.47868711173,
+      "liquido": 57615.60688404497,
+      "liquido_real": 57615.60688404497,
+      "investido": 48000.0,
+      "investido_real": 48000.0
+     },
+     "5": {
+      "bruto": 78430.45354356531,
+      "liquido": 75665.88551203051,
+      "liquido_real": 75665.88551203051,
+      "investido": 60000.0,
+      "investido_real": 60000.0
+     },
+     "6": {
+      "bruto": 99651.4056342288,
+      "liquido": 95503.69478909447,
+      "liquido_real": 95503.69478909447,
+      "investido": 72000.0,
+      "investido_real": 72000.0
+     },
+     "7": {
+      "bruto": 123206.66245486529,
+      "liquido": 117325.6630866355,
+      "liquido_real": 117325.6630866355,
+      "investido": 84000.0,
+      "investido_real": 84000.0
+     },
+     "8": {
+      "bruto": 149352.99752577176,
+      "liquido": 141350.047896906,
+      "liquido_real": 141350.047896906,
+      "investido": 96000.0,
+      "investido_real": 96000.0
+     },
+     "9": {
+      "bruto": 178375.4294544779,
+      "liquido": 167819.11503630623,
+      "liquido_real": 167819.11503630623,
+      "investido": 108000.0,
+      "investido_real": 108000.0
+     },
+     "10": {
+      "bruto": 210590.32889534178,
+      "liquido": 197001.77956104052,
+      "liquido_real": 197001.77956104052,
+      "investido": 120000.0,
+      "investido_real": 120000.0
+     },
+     "11": {
+      "bruto": 246348.8672747007,
+      "liquido": 229196.5371834956,
+      "liquido_real": 229196.5371834956,
+      "investido": 132000.0,
+      "investido_real": 132000.0
+     },
+     "12": {
+      "bruto": 286040.84487578913,
+      "liquido": 264734.71814442077,
+      "liquido_real": 264734.71814442077,
+      "investido": 144000.0,
+      "investido_real": 144000.0
+     },
+     "13": {
+      "bruto": 330098.9400129972,
+      "liquido": 303984.0990110476,
+      "liquido_real": 303984.0990110476,
+      "investido": 156000.0,
+      "investido_real": 156000.0
+     },
+     "14": {
+      "bruto": 379003.42561529804,
+      "liquido": 347352.91177300335,
+      "liquido_real": 347352.91177300335,
+      "investido": 168000.0,
+      "investido_real": 168000.0
+     },
+     "15": {
+      "bruto": 433287.4046338522,
+      "liquido": 395294.2939387744,
+      "liquido_real": 395294.2939387744,
+      "investido": 180000.0,
+      "investido_real": 180000.0
+     },
+     "16": {
+      "bruto": 493542.6213444472,
+      "liquido": 448311.22814278014,
+      "liquido_real": 448311.22814278014,
+      "investido": 192000.0,
+      "investido_real": 192000.0
+     },
+     "17": {
+      "bruto": 560425.9118932077,
+      "liquido": 506962.0251092265,
+      "liquido_real": 506962.0251092265,
+      "investido": 204000.0,
+      "investido_real": 204000.0
+     },
+     "18": {
+      "bruto": 634666.3644023318,
+      "liquido": 571866.409741982,
+      "liquido_real": 571866.409741982,
+      "investido": 216000.0,
+      "investido_real": 216000.0
+     },
+     "19": {
+      "bruto": 717073.2666874595,
+      "liquido": 643712.2766843406,
+      "liquido_real": 643712.2766843406,
+      "investido": 228000.0,
+      "investido_real": 228000.0
+     },
+     "20": {
+      "bruto": 808544.9282239515,
+      "liquido": 723263.1889903587,
+      "liquido_real": 723263.1889903587,
+      "investido": 240000.0,
+      "investido_real": 240000.0
+     }
+    }
+   },
+   "ancora": null
+  },
+  {
+   "nome": "pv50k_aporte500_inflacao_resgate_15",
+   "tipo": "simular",
+   "entrada": {
+    "pv": 50000,
+    "pmt0": 500,
+    "n": 180,
+    "retorno_anual": 0.12,
+    "inflacao_anual": 0.045,
+    "reajuste_anual": 0.045,
+    "regime": "resgate_15",
+    "mes_inicio": 10,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "resumo": {
+     "bruto_nominal": 571990.9050098759,
+     "investido_nominal": 174704.32574548697,
+     "investido_real": 137886.6009047021,
+     "imposto_resgate": 59592.98688965833,
+     "come_cotas_pagos": 0.0,
+     "liquido_nominal": 512397.91812021757,
+     "liquido_real": 264766.4788927573,
+     "bruto_real": 295559.39343729935,
+     "deflator": 1.9352824430911528
+    },
+    "anos": {
+     "1": {
+      "bruto": 62323.248954176626,
+      "liquido": 61374.76161105013,
+      "liquido_real": 58731.82929287094,
+      "investido": 56000.0,
+      "investido_real": 55859.106726980135
+     },
+     "2": {
+      "bruto": 76409.83398579241,
+      "liquido": 74288.85888792355,
+      "liquido_real": 68028.53312691885,
+      "investido": 62270.0,
+      "investido_real": 61718.21345396028
+     },
+     "3": {
+      "bruto": 92484.16000327225,
+      "liquido": 88934.85850278141,
+      "liquido_real": 77933.31448809123,
+      "investido": 68822.14999999997,
+      "investido_real": 67577.3201809404
+     },
+     "4": {
+      "bruto": 110798.13671011294,
+      "liquido": 105528.78821609599,
+      "liquido_real": 88492.36243425326,
+      "investido": 75669.1467499999,
+      "investido_real": 73436.42690792054
+     },
+     "5": {
+      "bruto": 131634.5051095647,
+      "liquido": 124312.96809619246,
+      "liquido_real": 99755.07134239578,
+      "investido": 82824.25835374981,
+      "investido_real": 79295.53363490068
+     },
+     "6": {
+      "bruto": 155310.56435669135,
+      "liquido": 145559.18220013793,
+      "liquido_real": 111774.27567874108,
+      "investido": 90301.34997966862,
+      "investido_real": 85154.64036188083
+     },
+     "7": {
+      "bruto": 182182.3470520024,
+      "liquido": 169572.23160351513,
+      "liquido_real": 124606.50141498326,
+      "investido": 98114.91072875378,
+      "investido_real": 91013.74708886097
+     },
+     "8": {
+      "bruto": 212649.29684451377,
+      "liquido": 196693.91457456886,
+      "liquido_real": 138312.23529411983,
+      "investido": 106280.08171154762,
+      "investido_real": 96872.85381584111
+     },
+     "9": {
+      "bruto": 247159.50867870855,
+      "liquido": 227307.48518518734,
+      "liquido_real": 152956.21323532794,
+      "investido": 114812.68538856722,
+      "investido_real": 102731.96054282125
+     },
+     "10": {
+      "bruto": 286215.59926258546,
+      "liquido": 261842.64780785554,
+      "liquido_real": 168607.72925952135,
+      "investido": 123729.25623105274,
+      "investido_real": 108591.0672698014
+     },
+     "11": {
+      "bruto": 330381.283445937,
+      "liquido": 300781.15184326394,
+      "liquido_real": 185340.96641603764,
+      "investido": 133047.07276145017,
+      "investido_real": 114450.17399678154
+     },
+     "12": {
+      "bruto": 380288.74128352304,
+      "liquido": 344663.0587463519,
+      "liquido_real": 203235.351296832,
+      "investido": 142784.19103571548,
+      "investido_real": 120309.28072376168
+     },
+     "13": {
+      "bruto": 436646.870733703,
+      "liquido": 394093.76206849597,
+      "liquido_real": 222375.93383808684,
+      "investido": 152959.47963232253,
+      "investido_real": 126168.38745074182
+     },
+     "14": {
+      "bruto": 500250.5323402318,
+      "liquido": 449751.8509215636,
+      "liquido_real": 242853.7942308492,
+      "investido": 163592.656215777,
+      "investido_real": 132027.49417772196
+     },
+     "15": {
+      "bruto": 571990.9050098759,
+      "liquido": 512397.91812021757,
+      "liquido_real": 264766.4788927573,
+      "investido": 174704.32574548697,
+      "investido_real": 137886.6009047021
+     }
+    }
+   },
+   "ancora": null
+  },
+  {
+   "nome": "aporte_2M_reais_de_hoje_resgate_15",
+   "tipo": "resolver_aporte",
+   "alvo_liquido_real": 2000000,
+   "entrada": {
+    "pv": 0.0,
+    "pmt0": 0.0,
+    "n": 240,
+    "retorno_anual": 0.11,
+    "inflacao_anual": 0.045,
+    "reajuste_anual": 0.045,
+    "regime": "resgate_15",
+    "mes_inicio": 1,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "pmt0": 4886.7583988014085
+   },
+   "ancora": null
+  },
+  {
+   "nome": "1000_mes_20a_come_cotas",
+   "tipo": "simular",
+   "entrada": {
+    "pv": 0.0,
+    "pmt0": 1000,
+    "n": 240,
+    "retorno_anual": 0.11,
+    "inflacao_anual": 0.0,
+    "reajuste_anual": 0.0,
+    "regime": "come_cotas",
+    "mes_inicio": 1,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "resumo": {
+     "bruto_nominal": 663478.6934903961,
+     "investido_nominal": 240000.0,
+     "investido_real": 240000.0,
+     "imposto_resgate": 860.4566066970932,
+     "come_cotas_pagos": 73719.23225513216,
+     "liquido_nominal": 662618.2368836991,
+     "liquido_real": 662618.2368836991,
+     "bruto_real": 663478.6934903961,
+     "deflator": 1.0
+    },
+    "anos": {
+     "1": {
+      "bruto": 12518.36692449432,
+      "liquido": 12503.40636045516,
+      "liquido_real": 12503.40636045516,
+      "investido": 12000.0,
+      "investido_real": 12000.0
+     },
+     "2": {
+      "bruto": 26203.991413719035,
+      "liquido": 26171.255355729292,
+      "liquido_real": 26171.255355729292,
+      "investido": 24000.0,
+      "investido_real": 24000.0
+     },
+     "3": {
+      "bruto": 41164.21519022844,
+      "liquido": 41112.04813240028,
+      "liquido_real": 41112.04813240028,
+      "investido": 36000.0,
+      "investido_real": 36000.0
+     },
+     "4": {
+      "bruto": 57517.74700161574,
+      "liquido": 57444.339253893384,
+      "liquido_real": 57444.339253893384,
+      "investido": 48000.0,
+      "investido_real": 48000.0
+     },
+     "5": {
+      "bruto": 75394.3514362358,
+      "liquido": 75297.72476458091,
+      "liquido_real": 75297.72476458091,
+      "investido": 60000.0,
+      "investido_real": 60000.0
+     },
+     "6": {
+      "bruto": 94935.87859976583,
+      "liquido": 94813.87052895346,
+      "liquido_real": 94813.87052895346,
+      "investido": 72000.0,
+      "investido_real": 72000.0
+     },
+     "7": {
+      "bruto": 116297.38968983867,
+      "liquido": 116147.63634430713,
+      "liquido_real": 116147.63634430713,
+      "investido": 84000.0,
+      "investido_real": 84000.0
+     },
+     "8": {
+      "bruto": 139648.38740013613,
+      "liquido": 139468.30474673366,
+      "liquido_real": 139468.30474673366,
+      "investido": 96000.0,
+      "investido_real": 96000.0
+     },
+     "9": {
+      "bruto": 165174.16091714706,
+      "liquido": 164960.9242609373,
+      "liquido_real": 164960.9242609373,
+      "investido": 108000.0,
+      "investido_real": 108000.0
+     },
+     "10": {
+      "bruto": 193077.25618208328,
+      "liquido": 192827.77775250943,
+      "liquido_real": 192827.77775250943,
+      "investido": 120000.0,
+      "investido_real": 120000.0
+     },
+     "11": {
+      "bruto": 223579.0830844195,
+      "liquido": 223289.98753397466,
+      "liquido_real": 223289.98753397466,
+      "investido": 132000.0,
+      "investido_real": 132000.0
+     },
+     "12": {
+      "bruto": 256921.672340071,
+      "liquido": 256589.26996105746,
+      "liquido_real": 256589.26996105746,
+      "investido": 144000.0,
+      "investido_real": 144000.0
+     },
+     "13": {
+      "bruto": 293369.59599496314,
+      "liquido": 292989.8534418166,
+      "liquido_real": 292989.8534418166,
+      "investido": 156000.0,
+      "investido_real": 156000.0
+     },
+     "14": {
+      "bruto": 333212.06679310836,
+      "liquido": 332780.5750779702,
+      "liquido_real": 332780.5750779702,
+      "investido": 168000.0,
+      "investido_real": 168000.0
+     },
+     "15": {
+      "bruto": 376765.23306758795,
+      "liquido": 376277.17257517186,
+      "liquido_real": 376277.17257517186,
+      "investido": 180000.0,
+      "investido_real": 180000.0
+     },
+     "16": {
+      "bruto": 424374.6873643021,
+      "liquido": 423824.7896084489,
+      "liquido_real": 423824.7896084489,
+      "investido": 192000.0,
+      "investido_real": 192000.0
+     },
+     "17": {
+      "bruto": 476418.20870431303,
+      "liquido": 475800.7145227743,
+      "liquido_real": 475800.7145227743,
+      "investido": 204000.0,
+      "investido_real": 204000.0
+     },
+     "18": {
+      "bruto": 533308.7602445161,
+      "liquido": 532617.3741002434,
+      "liquido_real": 532617.3741002434,
+      "investido": 216000.0,
+      "investido_real": 216000.0
+     },
+     "19": {
+      "bruto": 595497.7661229534,
+      "liquido": 594725.6061492764,
+      "liquido_real": 594725.6061492764,
+      "investido": 228000.0,
+      "investido_real": 228000.0
+     },
+     "20": {
+      "bruto": 663478.6934903961,
+      "liquido": 662618.2368836991,
+      "liquido_real": 662618.2368836991,
+      "investido": 240000.0,
+      "investido_real": 240000.0
+     }
+    }
+   },
+   "ancora": null
+  },
+  {
+   "nome": "pv50k_aporte500_inflacao_come_cotas",
+   "tipo": "simular",
+   "entrada": {
+    "pv": 50000,
+    "pmt0": 500,
+    "n": 180,
+    "retorno_anual": 0.12,
+    "inflacao_anual": 0.045,
+    "reajuste_anual": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 10,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "resumo": {
+     "bruto_nominal": 474635.85208016296,
+     "investido_nominal": 174704.32574548697,
+     "investido_real": 137886.6009047021,
+     "imposto_resgate": 2626.393565696088,
+     "come_cotas_pagos": 49839.218099418045,
+     "liquido_nominal": 472009.4585144669,
+     "liquido_real": 243896.93618082133,
+     "bruto_real": 245254.0474257831,
+     "deflator": 1.9352824430911528
+    },
+    "anos": {
+     "1": {
+      "bruto": 61683.502846742944,
+      "liquido": 61347.48060629039,
+      "liquido_real": 58705.72306822047,
+      "investido": 56000.0,
+      "investido_real": 55859.106726980135
+     },
+     "2": {
+      "bruto": 74541.81737805052,
+      "liquido": 74134.60764837985,
+      "liquido_real": 67887.2806468532,
+      "investido": 62270.0,
+      "investido_real": 61718.21345396028
+     },
+     "3": {
+      "bruto": 89002.80742730228,
+      "liquido": 88515.51228690716,
+      "liquido_real": 77565.84282319735,
+      "investido": 68822.14999999997,
+      "investido_real": 67577.3201809404
+     },
+     "4": {
+      "bruto": 105242.60284261596,
+      "liquido": 104665.34559390163,
+      "liquido_real": 87768.3128288703,
+      "investido": 75669.1467499999,
+      "investido_real": 73436.42690792054
+     },
+     "5": {
+      "bruto": 123455.82320496782,
+      "liquido": 122777.64558627168,
+      "liquido_real": 98523.05018759379,
+      "investido": 82824.25835374981,
+      "investido_real": 79295.53363490068
+     },
+     "6": {
+      "bruto": 143857.48280488644,
+      "liquido": 143066.23161070526,
+      "liquido_real": 109859.94954537768,
+      "investido": 90301.34997966862,
+      "investido_real": 85154.64036188083
+     },
+     "7": {
+      "bruto": 166685.09031787142,
+      "liquido": 165767.29234468375,
+      "liquido_real": 121810.52376784077,
+      "investido": 98114.91072875378,
+      "investido_real": 91013.74708886097
+     },
+     "8": {
+      "bruto": 192200.9630081798,
+      "liquido": 191141.68713298766,
+      "liquido_real": 134407.99153565158,
+      "investido": 106280.08171154762,
+      "investido_real": 96872.85381584111
+     },
+     "9": {
+      "bruto": 220694.7773071188,
+      "liquido": 219477.48238435452,
+      "liquido_real": 147687.36968157662,
+      "investido": 114812.68538856722,
+      "investido_real": 102731.96054282125
+     },
+     "10": {
+      "bruto": 252486.3798333949,
+      "liquido": 251092.74696200827,
+      "liquido_real": 161685.57052580212,
+      "investido": 123729.25623105274,
+      "investido_real": 108591.0672698014
+     },
+     "11": {
+      "bruto": 287928.8853702193,
+      "liquido": 286338.63293532236,
+      "liquido_real": 176441.50448008944,
+      "investido": 133047.07276145017,
+      "investido_real": 114450.17399678154
+     },
+     "12": {
+      "bruto": 327412.0910096928,
+      "liquido": 325602.77074070973,
+      "liquido_real": 191996.18820597033,
+      "investido": 142784.19103571548,
+      "investido_real": 120309.28072376168
+     },
+     "13": {
+      "bruto": 371366.23864474526,
+      "liquido": 369313.01075307233,
+      "liquido_real": 208392.8586276273,
+      "investido": 152959.47963232253,
+      "investido_real": 126168.38745074182
+     },
+     "14": {
+      "bruto": 420266.16126041167,
+      "liquido": 417941.54652245814,
+      "liquido_real": 225677.0931163755,
+      "investido": 163592.656215777,
+      "investido_real": 132027.49417772196
+     },
+     "15": {
+      "bruto": 474635.85208016296,
+      "liquido": 472009.4585144669,
+      "liquido_real": 243896.93618082133,
+      "investido": 174704.32574548697,
+      "investido_real": 137886.6009047021
+     }
+    }
+   },
+   "ancora": null
+  },
+  {
+   "nome": "aporte_2M_reais_de_hoje_come_cotas",
+   "tipo": "resolver_aporte",
+   "alvo_liquido_real": 2000000,
+   "entrada": {
+    "pv": 0.0,
+    "pmt0": 0.0,
+    "n": 240,
+    "retorno_anual": 0.11,
+    "inflacao_anual": 0.045,
+    "reajuste_anual": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 1,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "pmt0": 5269.296622558316
+   },
+   "ancora": null
+  },
+  {
+   "nome": "aporte_2M_inflacao_sem_reajuste",
+   "tipo": "resolver_aporte",
+   "alvo_liquido_real": 2000000,
+   "entrada": {
+    "pv": 0.0,
+    "pmt0": 0.0,
+    "n": 240,
+    "retorno_anual": 0.11,
+    "inflacao_anual": 0.045,
+    "reajuste_anual": 0.0,
+    "regime": "isento",
+    "mes_inicio": 1,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "pmt0": 5965.565896591464
+   },
+   "ancora": null
+  },
+  {
+   "nome": "prazo_curto_resgate_15_18m",
+   "tipo": "simular",
+   "entrada": {
+    "pv": 10000,
+    "pmt0": 1000,
+    "n": 18,
+    "retorno_anual": 0.1,
+    "inflacao_anual": 0.0,
+    "reajuste_anual": 0.0,
+    "regime": "resgate_15",
+    "mes_inicio": 1,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "resumo": {
+     "bruto_nominal": 30810.414564417733,
+     "investido_nominal": 28000.0,
+     "investido_real": 28000.0,
+     "imposto_resgate": 421.56218466266,
+     "come_cotas_pagos": 0.0,
+     "liquido_nominal": 30388.852379755073,
+     "liquido_real": 30388.852379755073,
+     "bruto_real": 30810.414564417733,
+     "deflator": 1.0
+    },
+    "anos": {
+     "1": {
+      "bruto": 23540.536612263764,
+      "liquido": 23309.456120424198,
+      "liquido_real": 23309.456120424198,
+      "investido": 22000.0,
+      "investido_real": 22000.0
+     }
+    }
+   },
+   "ancora": null
+  },
+  {
+   "nome": "so_valor_inicial_come_cotas",
+   "tipo": "simular",
+   "entrada": {
+    "pv": 100000,
+    "pmt0": 0.0,
+    "n": 60,
+    "retorno_anual": 0.1,
+    "inflacao_anual": 0.0,
+    "reajuste_anual": 0.0,
+    "regime": "come_cotas",
+    "mes_inicio": 3,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "resumo": {
+     "bruto_nominal": 150676.7985682141,
+     "investido_nominal": 100000,
+     "investido_real": 100000,
+     "imposto_resgate": 532.1733580421715,
+     "come_cotas_pagos": 8316.878149635226,
+     "liquido_nominal": 150144.62521017191,
+     "liquido_real": 150144.62521017191,
+     "bruto_real": 150676.7985682141,
+     "deflator": 1.0
+    },
+    "anos": {
+     "1": {
+      "bruto": 108846.33722231974,
+      "liquido": 108461.90430802491,
+      "liquido_real": 108461.90430802491,
+      "investido": 100000,
+      "investido_real": 100000
+     },
+     "2": {
+      "bruto": 118065.21449520951,
+      "liquido": 117648.2215522818,
+      "liquido_real": 117648.2215522818,
+      "investido": 100000,
+      "investido_real": 100000
+     },
+     "3": {
+      "bruto": 128064.89616024906,
+      "liquido": 127612.58547615878,
+      "liquido_real": 127612.58547615878,
+      "investido": 100000,
+      "investido_real": 100000
+     },
+     "4": {
+      "bruto": 138911.51342634315,
+      "liquido": 138420.89372063347,
+      "liquido_real": 138420.89372063347,
+      "investido": 100000,
+      "investido_real": 100000
+     },
+     "5": {
+      "bruto": 150676.7985682141,
+      "liquido": 150144.62521017191,
+      "liquido_real": 150144.62521017191,
+      "investido": 100000,
+      "investido_real": 100000
+     }
+    }
+   },
+   "ancora": null
+  },
+  {
+   "nome": "retorno_real_negativo",
+   "tipo": "simular",
+   "entrada": {
+    "pv": 0.0,
+    "pmt0": 1000,
+    "n": 120,
+    "retorno_anual": 0.03,
+    "inflacao_anual": 0.05,
+    "reajuste_anual": 0.0,
+    "regime": "resgate_15",
+    "mes_inicio": 1,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "resumo": {
+     "bruto_nominal": 139447.99681135098,
+     "investido_nominal": 120000.0,
+     "investido_real": 94765.59058141997,
+     "imposto_resgate": 2917.1995217026474,
+     "come_cotas_pagos": 0.0,
+     "liquido_nominal": 136530.79728964833,
+     "liquido_real": 83818.06597260186,
+     "bruto_real": 85608.97342219789,
+     "deflator": 1.628894626777442
+    },
+    "anos": {
+     "1": {
+      "bruto": 12164.119406928767,
+      "liquido": 12139.501495889452,
+      "liquido_real": 11561.429996085191,
+      "investido": 12000.0,
+      "investido_real": 11688.169075806934
+     },
+     "2": {
+      "bruto": 24693.162396065414,
+      "liquido": 24589.188036655603,
+      "liquido_real": 22303.118400594652,
+      "investido": 24000.0,
+      "investido_real": 22819.758671813535
+     },
+     "3": {
+      "bruto": 37598.07667487616,
+      "liquido": 37358.365173644735,
+      "liquido_real": 32271.560456663196,
+      "investido": 36000.0,
+      "investido_real": 33421.272572772206
+     },
+     "4": {
+      "bruto": 50890.13838205125,
+      "liquido": 50456.617624743565,
+      "liquido_real": 41510.784189504215,
+      "investido": 48000.0,
+      "investido_real": 43517.95247844713
+     },
+     "5": {
+      "bruto": 64580.96194044161,
+      "liquido": 63893.81764937536,
+      "liquido_real": 50062.478003849836,
+      "investido": 60000.0,
+      "investido_real": 53133.838102899426
+     },
+     "6": {
+      "bruto": 78682.51020558369,
+      "liquido": 77680.13367474613,
+      "liquido_real": 57966.111760886924,
+      "investido": 72000.0,
+      "investido_real": 62291.82441190162
+     },
+     "7": {
+      "bruto": 93207.10491868005,
+      "liquido": 91826.03918087804,
+      "liquido_real": 65259.05166564704,
+      "investido": 84000.0,
+      "investido_real": 71013.71613476086
+     },
+     "8": {
+      "bruto": 108167.43747316931,
+      "liquido": 106342.32185219391,
+      "liquido_real": 71976.66927908822,
+      "investido": 96000.0,
+      "investido_real": 79320.27968034109
+     },
+     "9": {
+      "bruto": 123576.58000429327,
+      "liquido": 121240.09300364928,
+      "liquido_real": 78152.44495322728,
+      "investido": 108000.0,
+      "investido_real": 87231.29258089369
+     },
+     "10": {
+      "bruto": 139447.99681135098,
+      "liquido": 136530.79728964833,
+      "liquido_real": 83818.06597260186,
+      "investido": 120000.0,
+      "investido_real": 94765.59058141997
+     }
+    }
+   },
+   "ancora": null
+  },
+  {
+   "nome": "prazo_1M_come_cotas",
+   "tipo": "resolver_prazo",
+   "alvo_liquido_real": 1000000,
+   "entrada": {
+    "pv": 10000,
+    "pmt0": 2000,
+    "n": 240,
+    "retorno_anual": 0.11,
+    "inflacao_anual": 0.045,
+    "reajuste_anual": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 1,
+    "aliquota_come_cotas": 0.15
+   },
+   "esperado": {
+    "n": 281
+   },
+   "ancora": null
+  },
+  {
+   "nome": "ipca_mais_6",
+   "tipo": "taxa_ipca_mais",
+   "inflacao": 0.045,
+   "real": 0.06,
+   "esperado": {
+    "retorno_anual": 0.1076999999999999
+   },
+   "ancora": null
+  }
+ ]
+}

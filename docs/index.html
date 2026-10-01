@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulador de Metas | Carteira Z</title>
+  <!-- Remover no lançamento oficial. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Descubra quanto aportar por mês para chegar à sua meta, em reais de hoje e já descontado o imposto.">
+  <link rel="stylesheet" href="css/estilo.css">
+  <script src="vendor/chart.umd.min.js"></script>
+  <script type="module" src="js/ui.js"></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="interno">
+      <a class="marca" href="https://carteiraz.com"><img src="img/logo-carteira-z.svg" alt="Carteira Z"></a>
+      <a class="link-site" href="https://carteiraz.com">Conheça a Carteira Z</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="interno">
+      <p class="eyebrow">Simulador</p>
+      <h1>Simulador de Metas</h1>
+      <p>Descubra quanto aportar por mês para chegar lá, em reais de hoje e já descontado o imposto.</p>
+    </div>
+  </section>
+
+  <main class="conteudo interno">
+  <div class="grade">
+    <form id="formulario" class="cartao" novalidate autocomplete="off">
+      <h2 class="titulo-cartao">Seus números</h2>
+
+      <fieldset class="campo" id="campo-modo">
+        <legend>O que você quer descobrir?</legend>
+        <label class="opcao"><input type="radio" name="modo" value="aportar" checked> Quanto aportar por mês</label>
+        <label class="opcao"><input type="radio" name="modo" value="final"> Quanto terei no final</label>
+        <label class="opcao"><input type="radio" name="modo" value="tempo"> Em quanto tempo chego lá</label>
+      </fieldset>
+
+      <div class="campo" id="campo-meta" data-modos="aportar tempo">
+        <div class="rotulo-linha">
+          <label for="meta">Meta (em reais de hoje)</label>
+          <button type="button" class="dica-botao" aria-label="Ajuda: meta" aria-expanded="false" aria-controls="dica-1">?</button>
+          </div>
+          <p class="dica-texto" id="dica-1" hidden>Quanto você quer ter, contado com o poder de compra de hoje. É o valor que você colocaria no bolso se pudesse resgatar hoje.</p>
+        <input id="meta" name="meta" type="text" inputmode="decimal" value="2.000.000" aria-describedby="erro-meta">
+        <p class="erro" id="erro-meta" aria-live="polite"></p>
+      </div>
+
+      <div class="campo" id="campo-valorInicial">
+        <div class="rotulo-linha">
+          <label for="valorInicial">Quanto já tenho investido</label>
+          <button type="button" class="dica-botao" aria-label="Ajuda: valor já investido" aria-expanded="false" aria-controls="dica-2">?</button>
+          </div>
+          <p class="dica-texto" id="dica-2" hidden>O dinheiro que você já tem separado para esta meta. Se não tem nada, deixe 0.</p>
+        <input id="valorInicial" name="valorInicial" type="text" inputmode="decimal" value="0" aria-describedby="erro-valorInicial">
+        <p class="erro" id="erro-valorInicial" aria-live="polite"></p>
+      </div>
+
+      <div class="campo" id="campo-aporte" data-modos="final tempo">
+        <div class="rotulo-linha">
+          <label for="aporte">Aporte mensal</label>
+          <button type="button" class="dica-botao" aria-label="Ajuda: aporte mensal" aria-expanded="false" aria-controls="dica-3">?</button>
+          </div>
+          <p class="dica-texto" id="dica-3" hidden>Quanto você vai investir todo mês. O aporte entra no fim de cada mês.</p>
+        <input id="aporte" name="aporte" type="text" inputmode="decimal" value="1.000" aria-describedby="erro-aporte">
+        <p class="erro" id="erro-aporte" aria-live="polite"></p>
+      </div>
+
+      <div class="campo" id="campo-prazo" data-modos="aportar final">
+        <div class="rotulo-linha">
+          <label for="prazo">Prazo</label>
+          <button type="button" class="dica-botao" aria-label="Ajuda: prazo" aria-expanded="false" aria-controls="dica-4">?</button>
+          </div>
+          <p class="dica-texto" id="dica-4" hidden>Em quanto tempo você quer chegar à meta. O máximo é 60 anos.</p>
+        <div class="par">
+          <input id="prazo" name="prazo" type="text" inputmode="numeric" value="20" aria-describedby="erro-prazo">
+          <select id="prazoUnidade" name="prazoUnidade" aria-label="Unidade do prazo">
+            <option value="anos" selected>Anos</option>
+            <option value="meses">Meses</option>
+          </select>
+        </div>
+        <p class="erro" id="erro-prazo" aria-live="polite"></p>
+      </div>
+
+      <div class="campo" id="campo-rentabilidade">
+        <div class="rotulo-linha">
+          <label for="rentabilidade">Rentabilidade esperada</label>
+          <button type="button" class="dica-botao" aria-label="Ajuda: rentabilidade" aria-expanded="false" aria-controls="dica-5">?</button>
+          </div>
+          <p class="dica-texto" id="dica-5" hidden>Quanto você espera que o investimento renda por ano. É uma hipótese sua, não uma promessa. “IPCA + %” quer dizer: a inflação mais um percentual fixo.</p>
+        <div class="par">
+          <input id="rentabilidade" name="rentabilidade" type="text" inputmode="decimal" value="11" aria-describedby="erro-rentabilidade">
+          <select id="rentabilidadeTipo" name="rentabilidadeTipo" aria-label="Tipo de rentabilidade">
+            <option value="nominal" selected>% ao ano</option>
+            <option value="ipca_mais">IPCA + % ao ano</option>
+          </select>
+        </div>
+        <p class="erro" id="erro-rentabilidade" aria-live="polite"></p>
+      </div>
+
+      <fieldset class="campo" id="campo-regime" aria-describedby="descricao-regime erro-regime">
+        <legend>Tipo de tributação <button type="button" class="dica-botao" aria-label="Ajuda: tributação" aria-expanded="false" aria-controls="dica-6">?</button></legend>
+        <p class="dica-texto" id="dica-6" hidden>Como o imposto de renda é cobrado neste investimento. Escolha o que mais se parece com o seu.</p>
+        <div id="opcoes-regime"></div>
+        <p class="descricao-regime" id="descricao-regime" aria-live="polite"></p>
+        <p class="erro" id="erro-regime" aria-live="polite"></p>
+      </fieldset>
+
+      <details class="avancadas" id="avancadas">
+        <summary>Opções avançadas</summary>
+
+        <div class="campo" id="campo-inflacao">
+          <div class="rotulo-linha">
+            <label for="inflacao">Inflação esperada (% ao ano)</label>
+            <button type="button" class="dica-botao" aria-label="Ajuda: inflação" aria-expanded="false" aria-controls="dica-7">?</button>
+          </div>
+          <p class="dica-texto" id="dica-7" hidden>Quanto você espera que os preços subam por ano. É com ela que convertemos o resultado para reais de hoje.</p>
+          <input id="inflacao" name="inflacao" type="text" inputmode="decimal" value="4,5" aria-describedby="erro-inflacao">
+          <p class="erro" id="erro-inflacao" aria-live="polite"></p>
+        </div>
+
+        <div class="campo" id="campo-reajustar">
+          <div class="rotulo-linha">
+            <label class="opcao"><input type="checkbox" id="reajustar" name="reajustar" checked> Reajustar o aporte todo ano</label>
+          <button type="button" class="dica-botao" aria-label="Ajuda: reajustar o aporte" aria-expanded="false" aria-controls="dica-8">?</button>
+          </div>
+          <p class="dica-texto" id="dica-8" hidden>Seu aporte sobe uma vez por ano, para acompanhar o custo de vida. Sem reajuste, o aporte de hoje perde valor com o tempo.</p>
+
+        <div class="campo" id="campo-reajuste">
+          <div class="rotulo-linha">
+            <label for="reajuste">Reajuste do aporte (% ao ano)</label>
+            <button type="button" class="dica-botao" aria-label="Ajuda: reajuste do aporte" aria-expanded="false" aria-controls="dica-9">?</button>
+          </div>
+          <p class="dica-texto" id="dica-9" hidden>Deixe em branco para o reajuste acompanhar a inflação. Ou digite outro percentual.</p>
+          <input id="reajuste" name="reajuste" type="text" inputmode="decimal" value="" placeholder="4,5" aria-describedby="erro-reajuste">
+          <p class="erro" id="erro-reajuste" aria-live="polite"></p>
+        </div>
+
+        <div class="campo" id="campo-mesInicio">
+          <div class="rotulo-linha">
+            <label for="mesInicio">Mês de início</label>
+            <button type="button" class="dica-botao" aria-label="Ajuda: mês de início" aria-expanded="false" aria-controls="dica-10">?</button>
+          </div>
+          <p class="dica-texto" id="dica-10" hidden>Mês em que você faz o primeiro aporte. Importa só para fundos com come-cotas, que cobram imposto em maio e novembro.</p>
+          <select id="mesInicio" name="mesInicio" aria-describedby="erro-mesInicio"></select>
+          <p class="erro" id="erro-mesInicio" aria-live="polite"></p>
+        </div>
+        <div class="campo" id="campo-variacao">
+          <div class="rotulo-linha">
+            <label for="variacao">Variação dos cenários (pontos percentuais)</label>
+            <button type="button" class="dica-botao" aria-label="Ajuda: variação dos cenários" aria-expanded="false" aria-controls="dica-11">?</button>
+          </div>
+          <p class="dica-texto" id="dica-11" hidden>Os cenários conservador e otimista usam a rentabilidade que você informou menos e mais esta variação. De 0 a 10.</p>
+          <input id="variacao" name="variacao" type="text" inputmode="decimal" value="2" aria-describedby="erro-variacao">
+          <p class="erro" id="erro-variacao" aria-live="polite"></p>
+        </div>
+      </details>
+    </form>
+
+    <div class="resultados">
+    <section class="cartao cartao-resultado" id="resultado" aria-labelledby="titulo-resultado">
+      <div class="cabeca-resultado">
+        <h2 class="eyebrow" id="titulo-resultado">Resultado</h2>
+        <span class="tag" id="selo-regime"></span>
+      </div>
+      <p class="aviso-erro" id="erro-geral" aria-live="polite" hidden></p>
+      <p class="destaque" id="destaque" aria-live="polite"></p>
+      <div id="avisos"></div>
+      <dl class="apoio" id="apoio"></dl>
+    </section>
+
+    <section class="cartao" id="cartao-cenarios" aria-labelledby="titulo-cenarios">
+      <h2 class="titulo-cartao" id="titulo-cenarios">E se a rentabilidade for diferente?</h2>
+      <div class="cenarios" id="cenarios"></div>
+    </section>
+
+    <section class="cartao" id="cartao-evolucao" aria-labelledby="titulo-evolucao">
+      <h2 class="titulo-cartao" id="titulo-evolucao">Evolução do seu dinheiro</h2>
+      <figure class="grafico">
+        <div class="area-grafico"><canvas id="grafico-evolucao" role="img" aria-label=""></canvas></div>
+        <figcaption id="legenda-evolucao"></figcaption>
+      </figure>
+    </section>
+
+    <section class="cartao" id="cartao-cascata" aria-labelledby="titulo-cascata">
+      <h2 class="titulo-cartao" id="titulo-cascata">De quanto aparece na tela ao que vale no seu bolso</h2>
+      <figure class="grafico">
+        <div class="area-grafico"><canvas id="grafico-cascata" role="img" aria-label=""></canvas></div>
+        <figcaption id="legenda-cascata"></figcaption>
+      </figure>
+    </section>
+
+    </div>
+  </div>
+
+    <section class="cartao" id="cartao-tabela" aria-labelledby="titulo-tabela">
+      <h2 class="titulo-cartao" id="titulo-tabela">Ano a ano</h2>
+      <p class="nota-estreita">Em telas maiores aparecem também os valores nominais.</p>
+      <p class="dica-rolagem" id="dica-rolagem" hidden>Deslize a tabela para o lado para ver mais →</p>
+      <div class="tabela-rolavel" tabindex="0" role="region" aria-labelledby="titulo-tabela">
+        <table id="tabela">
+          <thead>
+            <tr>
+              <th scope="col">Ano</th>
+              <th scope="col">Saldo líquido em reais de hoje</th>
+              <th scope="col" title="Total investido"><span class="rot-longo">Total investido</span><span class="rot-curto">Investido</span></th>
+              <th scope="col" class="so-largo">Saldo líquido</th>
+              <th scope="col" class="so-largo">Saldo bruto</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="interno">
+    <p><strong>Aviso importante.</strong> Esta simulação usa hipóteses suas: rentabilidade e inflação futuras são apenas suposições, não promessa de ganho, e rentabilidade passada não garante rentabilidade futura. Não é recomendação de investimento.</p>
+    <p>Simplificações do cálculo: o imposto de renda é sempre de 15% sobre o ganho, como se cada aplicação ficasse investida por mais de 2 anos (em prazos menores a alíquota real é maior); o come-cotas é sempre de 15%; não entram IOF, taxas de administração nem de custódia.</p>
+    </div>
+  </footer>
+</body>
+</html>

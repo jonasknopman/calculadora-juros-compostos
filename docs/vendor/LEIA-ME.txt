@@ -1,0 +1,7 @@
+﻿Bibliotecas de terceiros copiadas para o repositório (sem CDN, sem rede em tempo de execução).
+
+chart.umd.min.js
+  Chart.js v4.5.1 (licença MIT, ver LICENSE-chartjs.md)
+  Origem: pacote npm "chart.js" 4.5.1, arquivo dist/chart.umd.js, que já vem minificado;
+  copiado com o nome chart.umd.min.js, sem alterações.
+  Para atualizar: instalar o pacote numa pasta temporária fora do repositório e copiar de novo.
