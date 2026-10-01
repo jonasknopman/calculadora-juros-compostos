@@ -263,4 +263,8 @@ formulario.addEventListener('click', (evento) => {
 formulario.addEventListener('submit', (evento) => evento.preventDefault());
 recalcular();
 window.addEventListener('load', avisarAltura);
+// Segurança: remede depois que fontes e gráficos assentam (a página-mãe nunca fica com altura velha).
+document.fonts?.ready.then(avisarAltura);
+setTimeout(avisarAltura, 300);
+setTimeout(avisarAltura, 1500);
 new ResizeObserver(avisarAltura).observe(document.body);
