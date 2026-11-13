@@ -1,0 +1,864 @@
+{
+ "tolerancia": 0.01,
+ "casos": [
+  {
+   "nome": "ancora_m1_2M_2k_isento",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 2000000,
+    "retirada": 2000
+   },
+   "esperado": {
+    "duracao": 1200,
+    "esgotou": false
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_m1_2M_12k_isento",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 2000000,
+    "retirada": 12000
+   },
+   "esperado": {
+    "duracao": 359,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_m1_500k_5k_isento",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 500000,
+    "retirada": 5000
+   },
+   "esperado": {
+    "duracao": 138,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_m1_500k_5k_resgate15",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "resgate_15",
+    "mes_inicio": 12,
+    "valor_inicial": 500000,
+    "retirada": 5000
+   },
+   "esperado": {
+    "duracao": 127,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_m1_500k_5k_comecotas",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "valor_inicial": 500000,
+    "retirada": 5000
+   },
+   "esperado": {
+    "duracao": 125,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_m1_1M_8k_comecotas",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "valor_inicial": 1000000,
+    "retirada": 8000
+   },
+   "esperado": {
+    "duracao": 168,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_m2_5k_240m_isento",
+   "tipo": "valor_necessario",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "retirada": 5000,
+    "prazo_meses": 240
+   },
+   "esperado": {
+    "valor_inicial": 698633.98
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_m2_5k_240m_resgate_15",
+   "tipo": "valor_necessario",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "resgate_15",
+    "mes_inicio": 12,
+    "retirada": 5000,
+    "prazo_meses": 240
+   },
+   "esperado": {
+    "valor_inicial": 755893.14
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_m2_5k_240m_come_cotas",
+   "tipo": "valor_necessario",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "retirada": 5000,
+    "prazo_meses": 240
+   },
+   "esperado": {
+    "valor_inicial": 792531.3
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_m3_1M_240m_isento",
+   "tipo": "retirada_possivel",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 1000000,
+    "prazo_meses": 240
+   },
+   "esperado": {
+    "retirada": 7156.82
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_m3_1M_240m_resgate_15",
+   "tipo": "retirada_possivel",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "resgate_15",
+    "mes_inicio": 12,
+    "valor_inicial": 1000000,
+    "prazo_meses": 240
+   },
+   "esperado": {
+    "retirada": 6614.69
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_m3_1M_240m_come_cotas",
+   "tipo": "retirada_possivel",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "valor_inicial": 1000000,
+    "prazo_meses": 240
+   },
+   "esperado": {
+    "retirada": 6308.9
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_rent0_infl0_isento",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.0,
+    "inflacao_aa": 0.0,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 120000,
+    "retirada": 1000
+   },
+   "esperado": {
+    "duracao": 120,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_rent0_infl0_resgate_15",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.0,
+    "inflacao_aa": 0.0,
+    "regime": "resgate_15",
+    "mes_inicio": 12,
+    "valor_inicial": 120000,
+    "retirada": 1000
+   },
+   "esperado": {
+    "duracao": 120,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_rent0_infl0_come_cotas",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.0,
+    "inflacao_aa": 0.0,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "valor_inicial": 120000,
+    "retirada": 1000
+   },
+   "esperado": {
+    "duracao": 120,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_rent3_infl45_isento",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.03,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 500000,
+    "retirada": 3000
+   },
+   "esperado": {
+    "duracao": 151,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_rent3_infl45_resgate_15",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.03,
+    "inflacao_aa": 0.045,
+    "regime": "resgate_15",
+    "mes_inicio": 12,
+    "valor_inicial": 500000,
+    "retirada": 3000
+   },
+   "esperado": {
+    "duracao": 148,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_rent3_infl45_come_cotas",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.03,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "valor_inicial": 500000,
+    "retirada": 3000
+   },
+   "esperado": {
+    "duracao": 148,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_ipca_mais_6_isento",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.1076999999999999,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 1000000,
+    "retirada": 6000
+   },
+   "esperado": {
+    "duracao": 339,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_ipca_mais_6_resgate_15",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.1076999999999999,
+    "inflacao_aa": 0.045,
+    "regime": "resgate_15",
+    "mes_inicio": 12,
+    "valor_inicial": 1000000,
+    "retirada": 6000
+   },
+   "esperado": {
+    "duracao": 279,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_ipca_mais_6_come_cotas",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.1076999999999999,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "valor_inicial": 1000000,
+    "retirada": 6000
+   },
+   "esperado": {
+    "duracao": 253,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_cenario_9pct",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.09,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 500000,
+    "retirada": 5000
+   },
+   "esperado": {
+    "duracao": 122,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_cenario_11pct",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 500000,
+    "retirada": 5000
+   },
+   "esperado": {
+    "duracao": 138,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_cenario_13pct",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.13,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 500000,
+    "retirada": 5000
+   },
+   "esperado": {
+    "duracao": 160,
+    "esgotou": true
+   },
+   "ancora": true
+  },
+  {
+   "nome": "ancora_trajetoria_1M_8k_comecotas",
+   "tipo": "trajetoria",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "valor_inicial": 1000000,
+    "retirada": 8000
+   },
+   "esperado": {
+    "1": {
+     "saldo_bruto": 1000664.72
+    },
+    "6": {
+     "imposto_mes": 7705.06,
+     "saldo_bruto": 995811.33
+    },
+    "13": {
+     "imposto_mes": 0.0,
+     "retirada_liquida_nominal": 8360.0
+    }
+   },
+   "ancora": true
+  },
+  {
+   "nome": "extra_m1_comecotas_mes1",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 1,
+    "valor_inicial": 600000,
+    "retirada": 4000
+   },
+   "esperado": {
+    "duracao": 219,
+    "esgotou": true
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m1_comecotas_mes5",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 5,
+    "valor_inicial": 600000,
+    "retirada": 4000
+   },
+   "esperado": {
+    "duracao": 219,
+    "esgotou": true
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m1_comecotas_mes6",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 6,
+    "valor_inicial": 600000,
+    "retirada": 4000
+   },
+   "esperado": {
+    "duracao": 219,
+    "esgotou": true
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m1_comecotas_mes12",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "valor_inicial": 600000,
+    "retirada": 4000
+   },
+   "esperado": {
+    "duracao": 219,
+    "esgotou": true
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m2_comecotas_mes1",
+   "tipo": "valor_necessario",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 1,
+    "retirada": 4000,
+    "prazo_meses": 180
+   },
+   "esperado": {
+    "valor_inicial": 524463.73
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m2_resgate15_mes5",
+   "tipo": "valor_necessario",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "resgate_15",
+    "mes_inicio": 5,
+    "retirada": 4000,
+    "prazo_meses": 180
+   },
+   "esperado": {
+    "valor_inicial": 508685.09
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m3_comecotas_mes6",
+   "tipo": "retirada_possivel",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 6,
+    "valor_inicial": 800000,
+    "prazo_meses": 120
+   },
+   "esperado": {
+    "retirada": 8264.27
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m1_infl0_isento",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.0,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 300000,
+    "retirada": 3000
+   },
+   "esperado": {
+    "duracao": 231,
+    "esgotou": true
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m2_infl0_resgate15",
+   "tipo": "valor_necessario",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.0,
+    "regime": "resgate_15",
+    "mes_inicio": 12,
+    "retirada": 3000,
+    "prazo_meses": 120
+   },
+   "esperado": {
+    "valor_inicial": 236002.69
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m3_infl0_comecotas",
+   "tipo": "retirada_possivel",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.0,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "valor_inicial": 300000,
+    "prazo_meses": 120
+   },
+   "esperado": {
+    "retirada": 3762.09
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m1_rent0_infl45_isento",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.0,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 100000,
+    "retirada": 1000
+   },
+   "esperado": {
+    "duracao": 85,
+    "esgotou": true
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m2_rent0_infl0_isento",
+   "tipo": "valor_necessario",
+   "entrada": {
+    "rentabilidade_aa": 0.0,
+    "inflacao_aa": 0.0,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "retirada": 1000,
+    "prazo_meses": 60
+   },
+   "esperado": {
+    "valor_inicial": 60000
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m2_rent3_infl45_comecotas",
+   "tipo": "valor_necessario",
+   "entrada": {
+    "rentabilidade_aa": 0.03,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "retirada": 3000,
+    "prazo_meses": 120
+   },
+   "esperado": {
+    "valor_inicial": 395884.78
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m3_rent3_infl45_resgate15",
+   "tipo": "retirada_possivel",
+   "entrada": {
+    "rentabilidade_aa": 0.03,
+    "inflacao_aa": 0.045,
+    "regime": "resgate_15",
+    "mes_inicio": 12,
+    "valor_inicial": 500000,
+    "prazo_meses": 120
+   },
+   "esperado": {
+    "retirada": 3795.36
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m2_ipca_mais_5_isento",
+   "tipo": "valor_necessario",
+   "entrada": {
+    "rentabilidade_aa": 0.09725000000000006,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "retirada": 6000,
+    "prazo_meses": 300
+   },
+   "esperado": {
+    "valor_inicial": 1042042.35
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m3_ipca_mais_5_comecotas",
+   "tipo": "retirada_possivel",
+   "entrada": {
+    "rentabilidade_aa": 0.09725000000000006,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "valor_inicial": 1000000,
+    "prazo_meses": 300
+   },
+   "esperado": {
+    "retirada": 5001.77
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m1_nao_esgota_resgate15",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "resgate_15",
+    "mes_inicio": 12,
+    "valor_inicial": 3000000,
+    "retirada": 2000
+   },
+   "esperado": {
+    "duracao": 1200,
+    "esgotou": false
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m1_nao_esgota_comecotas",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "come_cotas",
+    "mes_inicio": 12,
+    "valor_inicial": 3000000,
+    "retirada": 2000
+   },
+   "esperado": {
+    "duracao": 1200,
+    "esgotou": false
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m1_esgota_no_mes_1",
+   "tipo": "duracao",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 1000,
+    "retirada": 5000
+   },
+   "esperado": {
+    "duracao": 0,
+    "esgotou": true
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m2_prazo_1_mes",
+   "tipo": "valor_necessario",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "resgate_15",
+    "mes_inicio": 12,
+    "retirada": 5000,
+    "prazo_meses": 1
+   },
+   "esperado": {
+    "valor_inicial": 5000
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_m3_prazo_1_mes_isento",
+   "tipo": "retirada_possivel",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 50000,
+    "prazo_meses": 1
+   },
+   "esperado": {
+    "retirada": 50000.0
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_trajetoria_resgate15",
+   "tipo": "trajetoria",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "resgate_15",
+    "mes_inicio": 12,
+    "valor_inicial": 500000,
+    "retirada": 5000
+   },
+   "esperado": {
+    "1": {
+     "retirada_liquida_nominal": 5000.0,
+     "retirada_bruta": 5000.0,
+     "imposto_mes": 0.0,
+     "saldo_bruto": 499323.6239426582,
+     "saldo_liquido": 498675.08035125944,
+     "saldo_liquido_real": 496849.2540419062
+    },
+    "12": {
+     "retirada_liquida_nominal": 5205.869422110183,
+     "retirada_bruta": 5278.097624787624,
+     "imposto_mes": 72.228202677441,
+     "saldo_bruto": 489757.75213175354,
+     "saldo_liquido": 482477.569329795,
+     "saldo_liquido_real": 461701.0232821005
+    },
+    "60": {
+     "retirada_liquida_nominal": 6208.096118291311,
+     "retirada_bruta": 6605.796563530503,
+     "imposto_mes": 397.70044523919205,
+     "saldo_bruto": 390863.3580856063,
+     "saldo_liquido": 367027.611214565,
+     "saldo_liquido_real": 294521.69071377383
+    },
+    "127": {
+     "retirada_liquida_nominal": 7937.633709039314,
+     "retirada_bruta": 8818.20358350045,
+     "imposto_mes": 880.5698744611354,
+     "saldo_bruto": 7372.9767230687385,
+     "saldo_liquido": 6633.523421914059,
+     "saldo_liquido_real": 4163.2279735706425
+    }
+   },
+   "ancora": false
+  },
+  {
+   "nome": "extra_trajetoria_isento",
+   "tipo": "trajetoria",
+   "entrada": {
+    "rentabilidade_aa": 0.11,
+    "inflacao_aa": 0.045,
+    "regime": "isento",
+    "mes_inicio": 12,
+    "valor_inicial": 500000,
+    "retirada": 5000
+   },
+   "esperado": {
+    "1": {
+     "retirada_liquida_nominal": 5000.0,
+     "retirada_bruta": 5000.0,
+     "imposto_mes": 0.0,
+     "saldo_bruto": 499323.6239426582,
+     "saldo_liquido": 499323.6239426582,
+     "saldo_liquido_real": 497495.4230852303
+    },
+    "12": {
+     "retirada_liquida_nominal": 5205.869422110183,
+     "retirada_bruta": 5205.869422110183,
+     "imposto_mes": 0.0,
+     "saldo_bruto": 490206.9741361006,
+     "saldo_liquido": 490206.9741361006,
+     "saldo_liquido_real": 469097.58290535945
+    },
+    "138": {
+     "retirada_liquida_nominal": 8264.45692195976,
+     "retirada_bruta": 8264.45692195976,
+     "imposto_mes": 0.0,
+     "saldo_bruto": 3965.2163884959837,
+     "saldo_liquido": 3965.2163884959837,
+     "saldo_liquido_real": 2390.174189579773
+    }
+   },
+   "ancora": false
+  }
+ ]
+}
