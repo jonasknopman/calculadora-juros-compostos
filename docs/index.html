@@ -296,6 +296,40 @@
         <p class="descricao-regime" id="descricao-regime-renda" aria-live="polite"></p>
         <p class="erro" id="erro-renda-regime" aria-live="polite"></p>
       </fieldset>
+
+      <details class="avancadas" id="avancadas-renda">
+        <summary>Opções avançadas</summary>
+
+        <div class="campo" id="campo-inflacao-renda">
+          <div class="rotulo-linha">
+            <label for="inflacao-renda">Inflação esperada (% ao ano)</label>
+            <button type="button" class="dica-botao" aria-label="Ajuda: inflação" aria-expanded="false" aria-controls="dica-renda-6">?</button>
+          </div>
+          <p class="dica-texto" id="dica-renda-6" hidden>Quanto você espera que os preços subam por ano. É com ela que a sua retirada acompanha o custo de vida e que convertemos os valores para reais de hoje.</p>
+          <input id="inflacao-renda" name="inflacao" type="text" inputmode="decimal" value="4,5" aria-describedby="erro-renda-inflacao">
+          <p class="erro" id="erro-renda-inflacao" aria-live="polite"></p>
+        </div>
+
+        <div class="campo" id="campo-mesInicio-renda">
+          <div class="rotulo-linha">
+            <label for="mesInicio-renda">Mês da primeira retirada</label>
+            <button type="button" class="dica-botao" aria-label="Ajuda: mês da primeira retirada" aria-expanded="false" aria-controls="dica-renda-7">?</button>
+          </div>
+          <p class="dica-texto" id="dica-renda-7" hidden>Importa só para fundos com come-cotas, que cobram imposto em maio e novembro.</p>
+          <select id="mesInicio-renda" name="mesInicio" aria-describedby="erro-renda-mesInicio"></select>
+          <p class="erro" id="erro-renda-mesInicio" aria-live="polite"></p>
+        </div>
+
+        <div class="campo" id="campo-variacao-renda">
+          <div class="rotulo-linha">
+            <label for="variacao-renda">Variação dos cenários (pontos percentuais)</label>
+            <button type="button" class="dica-botao" aria-label="Ajuda: variação dos cenários" aria-expanded="false" aria-controls="dica-renda-8">?</button>
+          </div>
+          <p class="dica-texto" id="dica-renda-8" hidden>Os cenários conservador e otimista usam a rentabilidade que você informou menos e mais esta variação. De 0 a 10.</p>
+          <input id="variacao-renda" name="variacao" type="text" inputmode="decimal" value="2" aria-describedby="erro-renda-variacao">
+          <p class="erro" id="erro-renda-variacao" aria-live="polite"></p>
+        </div>
+      </details>
     </form>
 
     <div class="resultados">
@@ -309,6 +343,19 @@
         <div id="avisos-renda"></div>
         <div id="notas-renda"></div>
         <dl class="apoio" id="apoio-renda"></dl>
+      </section>
+
+      <section class="cartao" id="cartao-cenarios-renda" aria-labelledby="titulo-cenarios-renda">
+        <h2 class="titulo-cartao" id="titulo-cenarios-renda">E se a rentabilidade for diferente?</h2>
+        <div class="cenarios" id="cenarios-renda"></div>
+      </section>
+
+      <section class="cartao" id="cartao-evolucao-renda" aria-labelledby="titulo-evolucao-renda">
+        <h2 class="titulo-cartao" id="titulo-evolucao-renda">Evolução do seu dinheiro</h2>
+        <figure class="grafico">
+          <div class="area-grafico"><canvas id="grafico-evolucao-renda" role="img" aria-label=""></canvas></div>
+          <figcaption id="legenda-evolucao-renda"></figcaption>
+        </figure>
       </section>
     </div>
   </div>

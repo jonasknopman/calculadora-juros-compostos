@@ -364,7 +364,7 @@ thead th {
 @media (min-width: 900px) and (min-height: 1000px) {
   #formulario, #formulario-renda { position: sticky; top: calc(var(--altura-cabecalho) + 3px + 16px); }
   /* Com as opções avançadas abertas o formulário passa da altura da janela: rola junto */
-  #formulario:has(#avancadas[open]) { position: static; }
+  #formulario:has(#avancadas[open]), #formulario-renda:has(#avancadas-renda[open]) { position: static; }
 }
 
 /* Modo incorporado (?embed=1): sem cabeçalho e sem hero; o rodapé com o aviso legal fica */

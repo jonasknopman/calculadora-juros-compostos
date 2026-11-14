@@ -1,9 +1,12 @@
 // Liga o DOM da aba "Viver de renda" a entrada_retirada.js. Nenhuma regra de cálculo aqui.
 // Não importa ui.js (ele executa código ao ser importado); alguns ajudantes de DOM se repetem.
 import { processarRetirada } from './entrada_retirada.js';
+import { mesSeguinteAoAtual } from './entrada.js';
 import { PRESETS } from './tributacao.js';
+import { desenharSaldoRenda } from './graficos_retirada.js';
 
 const ATRASO_MS = 250;
+const MESES = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
 const formulario = document.getElementById('formulario-renda');
 const campoPorNome = (nome) => formulario.elements[nome];
@@ -25,6 +28,10 @@ function preencherListas() {
     opcoes.append(rotulo);
   });
   atualizarDescricaoDoRegime();
+
+  const mes = campoPorNome('mesInicio');
+  MESES.forEach((nome, i) => mes.add(new Option(nome, String(i + 1))));
+  mes.value = String(mesSeguinteAoAtual());
 }
 
 function atualizarDescricaoDoRegime() {
@@ -57,7 +64,9 @@ function lerFormulario() {
     rentabilidade: campoPorNome('rentabilidade').value,
     rentabilidadeTipo: campoPorNome('rentabilidadeTipo').value,
     regime: campoPorNome('regime').value,
-    // inflacao e mesInicio ficam de fora: a etapa 4 os liga às opções avançadas.
+    inflacao: campoPorNome('inflacao').value,
+    mesInicio: campoPorNome('mesInicio').value,
+    variacao: campoPorNome('variacao').value,
   };
 }
 
@@ -165,12 +174,43 @@ function mostrarResultado(r) {
     apoio.append(bloco);
   }
 
+  mostrarCenarios(r.cenarios);
+  mostrarGrafico(r.grafico);
   mostrarTabela(r.tabela);
   const nota = document.getElementById('nota-tabela-renda');
   nota.textContent = r.notaTabela;
   nota.hidden = r.notaTabela === '';
   document.getElementById('cartao-tabela-renda').hidden = r.tabela.length === 0;
   atualizarDicaDeRolagem();
+}
+
+function mostrarCenarios(cenarios) {
+  const cartao = document.getElementById('cartao-cenarios-renda');
+  const area = document.getElementById('cenarios-renda');
+  area.replaceChildren();
+  cartao.hidden = cenarios.length === 0;
+  for (const cenario of cenarios) {
+    const item = document.createElement('div');
+    item.className = `cenario cenario-${cenario.nome.toLowerCase()}`;
+    const nome = document.createElement('h3');
+    nome.textContent = cenario.nome;
+    const taxa = document.createElement('p');
+    taxa.className = 'cenario-taxa';
+    taxa.textContent = cenario.rentabilidade;
+    const principal = document.createElement('p');
+    principal.className = cenario.alcanca ? 'cenario-valor' : 'cenario-valor cenario-falha';
+    principal.textContent = cenario.texto;
+    item.append(nome, taxa, principal);
+    area.append(item);
+  }
+}
+
+function mostrarGrafico(grafico) {
+  const temGrafico = Boolean(grafico) && grafico.pontos.length > 1 && typeof window.Chart === 'function';
+  document.getElementById('cartao-evolucao-renda').hidden = !temGrafico;
+  if (!temGrafico) return;
+  desenharSaldoRenda(document.getElementById('grafico-evolucao-renda'), grafico);
+  document.getElementById('legenda-evolucao-renda').textContent = grafico.legenda;
 }
 
 // Rede de segurança: se a tabela ainda precisar rolar, avisa (e só nesse caso).
