@@ -12,6 +12,7 @@ import {
   lerNumero,
   lerCampo,
   moeda,
+  percentual,
   textoDuracao,
   mesSeguinteAoAtual,
   INFLACAO_PADRAO,
@@ -26,6 +27,8 @@ export const RETIRADA_MAXIMA = 1e9; // R$ 1 bilhão
 
 const MENSAGEM_INALCANCAVEL = 'Com esses números não foi possível calcular. Revise os valores.';
 const NOTA_TABELA_LIMITADA = 'A tabela mostra os primeiros 30 anos.';
+export const VARIACAO_CENARIOS_PADRAO = '2';
+export const VARIACAO_CENARIOS_MAXIMA = 10;
 
 const RESULTADO_VAZIO = Object.freeze({
   destaque: null,
@@ -35,6 +38,8 @@ const RESULTADO_VAZIO = Object.freeze({
   linhas: [],
   tabela: [],
   notaTabela: '',
+  cenarios: [],
+  grafico: null,
   numeros: null,
 });
 
@@ -83,7 +88,8 @@ function impostoTotalEmReaisDeHoje(serie, horizonteMeses, inflacaoAnual) {
 // `campos` traz o texto como o usuário digitou:
 //   modo, valorInicial, retirada, prazo, prazoUnidade ('anos'|'meses'),
 //   rentabilidade, rentabilidadeTipo ('nominal'|'ipca_mais'), regime,
-//   e, opcionais: inflacao (padrão INFLACAO_PADRAO) e mesInicio (padrão: mês seguinte ao atual).
+//   e, opcionais: inflacao (padrão INFLACAO_PADRAO), mesInicio (padrão: mês seguinte ao atual)
+//   e variacao (pontos percentuais dos cenários, de 0 a 10; padrão VARIACAO_CENARIOS_PADRAO).
 // Nunca lança exceção.
 export function processarRetirada(campos) {
   const erros = {};
@@ -133,6 +139,11 @@ export function processarRetirada(campos) {
     maxMensagem: 'Use uma inflação de até 100% ao ano.',
   });
 
+  const variacao = lerCampo({ variacao: campos.variacao ?? VARIACAO_CENARIOS_PADRAO }, erros, 'variacao', {
+    max: VARIACAO_CENARIOS_MAXIMA,
+    maxMensagem: `Use uma variação de até ${VARIACAO_CENARIOS_MAXIMA} pontos percentuais.`,
+  });
+
   const regime = campos.regime ?? 'isento';
   if (!REGIMES.includes(regime)) erros.regime = 'Escolha um tipo de tributação da lista.';
 
@@ -150,31 +161,103 @@ export function processarRetirada(campos) {
 
   const inflacaoAnual = inflacaoPct / 100;
   const tipoRentabilidade = campos.rentabilidadeTipo === 'ipca_mais' ? 'ipca_mais' : 'nominal';
-  const retornoAnual = tipoRentabilidade === 'ipca_mais'
-    ? taxaNominalDeIpcaMais(inflacaoAnual, rentabilidade / 100)
-    : rentabilidade / 100;
+  const paraTaxaNominal = (pct) => (tipoRentabilidade === 'ipca_mais'
+    ? taxaNominalDeIpcaMais(inflacaoAnual, pct / 100)
+    : pct / 100);
+  const retornoAnual = paraTaxaNominal(rentabilidade);
   const base = { retornoAnual, inflacaoAnual, regime, mesInicio };
 
   try {
-    return calcular({ modo, valorInicial, retirada, prazoMeses, base });
+    return calcular({
+      modo, valorInicial, retirada, prazoMeses, base, rentabilidade, variacao, tipoRentabilidade, paraTaxaNominal,
+    });
   } catch {
     return { ok: false, erros: {}, erroGeral: MENSAGEM_INALCANCAVEL, ...RESULTADO_VAZIO };
   }
 }
 
-function calcular({ modo, valorInicial, retirada, prazoMeses, base }) {
+// Resolve o modo escolhido para uma taxa. Devolve { x, y, meses, esgotou }:
+// x = valor investido hoje, y = retirada mensal líquida (reais de hoje), meses = duração do resultado.
+// Modo valor: x arredondado para cima ao centavo; modo retirada: y para baixo. Assim o valor
+// mostrado, se digitado de volta, cumpre o prazo.
+function resolverModo(modo, { valorInicial, retirada, prazoMeses }, base) {
+  if (modo === 'duracao') {
+    const r = duracaoDoDinheiro({ ...base, valorInicial, retirada });
+    return { x: valorInicial, y: retirada, meses: r.meses, esgotou: r.esgotou };
+  }
+  if (modo === 'valor') {
+    const x = Math.ceil(valorNecessario({ ...base, retirada, prazoMeses }) * 100) / 100;
+    return { x, y: retirada, meses: prazoMeses, esgotou: true };
+  }
+  const y = Math.floor(retiradaPossivel({ ...base, valorInicial, prazoMeses }) * 100) / 100;
+  return { x: valorInicial, y, meses: prazoMeses, esgotou: true };
+}
+
+function textoRentabilidade(tipo, pct) {
+  return tipo === 'ipca_mais' ? `IPCA + ${percentual(pct)} ao ano` : `${percentual(pct)} ao ano`;
+}
+
+function montarCenario(nome, modo, tipo, pct, retornoAnual, entradas, base) {
+  const cenario = {
+    nome, rentabilidade: textoRentabilidade(tipo, pct), retornoAnual, alcanca: false, valor: null, texto: 'Não foi possível calcular',
+  };
+  try {
+    const { x, y, meses, esgotou } = resolverModo(modo, entradas, { ...base, retornoAnual });
+    cenario.alcanca = true;
+    if (modo === 'duracao') {
+      cenario.valor = meses;
+      if (!esgotou) {
+        cenario.texto = 'Não se esgota (mais de 100 anos)';
+      } else if (meses === 0) {
+        cenario.alcanca = false;
+        cenario.texto = 'Não cobre a primeira retirada';
+      } else {
+        cenario.texto = textoDuracao(meses);
+      }
+    } else if (modo === 'valor') {
+      cenario.valor = x;
+      cenario.texto = moeda(x);
+    } else {
+      cenario.valor = y;
+      cenario.texto = `${moeda(y)} por mês`;
+    }
+  } catch {
+    // fica "Não foi possível calcular"; os outros cenários seguem
+  }
+  return cenario;
+}
+
+// Gráfico do cenário base: um ponto por ano (e o último mês, se o horizonte não for múltiplo de 12).
+function montarGraficoRetirada({ serie, horizonte, modo, x, y, meses, semFim }) {
+  const mesesDosPontos = [];
+  for (let ano = 0; 12 * ano <= horizonte; ano++) mesesDosPontos.push(12 * ano);
+  if (horizonte % 12 !== 0) mesesDosPontos.push(horizonte);
+  const pontos = mesesDosPontos.map((mes) => ({ ano: mes / 12, saldoLiquidoReal: serie.saldoLiquidoReal[mes] }));
+
+  let legenda;
+  if (semFim) {
+    legenda = `Em 30 anos, seu saldo líquido vai de ${moeda(x)} a ${moeda(serie.saldoLiquidoReal[horizonte])} (reais de hoje), já com as retiradas de ${moeda(y)} por mês. O gráfico mostra os primeiros 30 anos.`;
+  } else {
+    const ligacao = modo === 'duracao' ? 'em' : 'ao fim de';
+    legenda = `Você começa com ${moeda(x)} e, retirando ${moeda(y)} por mês, o saldo líquido chega perto de zero ${ligacao} ${textoDuracao(meses)}.`;
+  }
+  return {
+    titulo: 'Evolução do seu dinheiro, em reais de hoje',
+    rotuloSaldo: 'Seu saldo líquido (reais de hoje)',
+    pontos,
+    legenda,
+    descricao: `${legenda} Gráfico de linha de 0 a ${textoDuracao(horizonte)}; os mesmos números estão na tabela ano a ano.`,
+  };
+}
+
+function calcular({ modo, valorInicial, retirada, prazoMeses, base, rentabilidade, variacao, tipoRentabilidade, paraTaxaNominal }) {
   const { regime, inflacaoAnual, retornoAnual } = base;
-  let x = valorInicial; // valor investido hoje
-  let y = retirada; // retirada mensal líquida, em reais de hoje
-  let meses; // duração do resultado
-  let esgotou = true;
+  const entradas = { valorInicial, retirada, prazoMeses };
+  const { x, y, meses, esgotou } = resolverModo(modo, entradas, base);
   let destaque;
   let valorDestaque = null; // trecho da frase que a tela realça
 
   if (modo === 'duracao') {
-    const r = duracaoDoDinheiro({ ...base, valorInicial: x, retirada: y });
-    meses = r.meses;
-    esgotou = r.esgotou;
     if (!esgotou) {
       valorDestaque = 'não se esgota';
       destaque = 'Seu dinheiro não se esgota (mais de 100 anos)';
@@ -185,15 +268,9 @@ function calcular({ modo, valorInicial, retirada, prazoMeses, base }) {
       destaque = `Seu dinheiro dura ${valorDestaque}`;
     }
   } else if (modo === 'valor') {
-    // Arredonda para cima ao centavo: o valor mostrado, se digitado de volta, cumpre o prazo.
-    x = Math.ceil(valorNecessario({ ...base, retirada: y, prazoMeses }) * 100) / 100;
-    meses = prazoMeses;
     valorDestaque = moeda(x);
     destaque = `Você precisa ter ${valorDestaque} para retirar ${moeda(y)} por mês durante ${textoDuracao(meses)}`;
   } else {
-    // Arredonda para baixo ao centavo, pelo mesmo motivo.
-    y = Math.floor(retiradaPossivel({ ...base, valorInicial: x, prazoMeses }) * 100) / 100;
-    meses = prazoMeses;
     valorDestaque = moeda(y);
     destaque = `Você pode retirar ${valorDestaque} por mês, em reais de hoje e já descontado o imposto, durante ${textoDuracao(meses)}`;
   }
@@ -217,6 +294,13 @@ function calcular({ modo, valorInicial, retirada, prazoMeses, base }) {
     valor: moeda(impostoTotal),
   });
 
+  // Cenários: rentabilidade informada -X, a informada e +X pontos percentuais (piso em 0).
+  const cenarios = [
+    ['Conservador', Math.max(0, rentabilidade - variacao)],
+    ['Base', rentabilidade],
+    ['Otimista', rentabilidade + variacao],
+  ].map(([nome, pct]) => montarCenario(nome, modo, tipoRentabilidade, pct, paraTaxaNominal(pct), entradas, base));
+
   return {
     ok: true,
     erros: {},
@@ -228,6 +312,8 @@ function calcular({ modo, valorInicial, retirada, prazoMeses, base }) {
     linhas,
     tabela: horizonte > 0 ? montarTabelaRetirada(serie, horizonte, inflacaoAnual) : [],
     notaTabela: semFim ? NOTA_TABELA_LIMITADA : '',
+    cenarios,
+    grafico: horizonte > 0 ? montarGraficoRetirada({ serie, horizonte, modo, x, y, meses, semFim }) : null,
     numeros: {
       modo,
       valorInicial: x,
