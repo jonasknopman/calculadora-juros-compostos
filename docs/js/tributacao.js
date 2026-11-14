@@ -44,3 +44,6 @@ export function avisosDeTributacao(regime, prazoMeses) {
   if (regime !== 'isento' && prazoMeses <= PRAZO_CURTO_MAXIMO_MESES) return [AVISO_PRAZO_CURTO];
   return [];
 }
+
+// Aviso da fase 2: o valor juntado é tratado como todo principal (sem rendimento acumulado).
+export const AVISO_VALOR_JUNTADO = 'A simulação trata todo o valor que você juntou como dinheiro seu, sem rendimento acumulado. Se parte dele já é rendimento, o imposto das primeiras retiradas será um pouco maior.';
