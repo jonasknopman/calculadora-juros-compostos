@@ -57,7 +57,7 @@ export function lerNumero(texto) {
 }
 
 // Lê um campo numérico e registra o erro, se houver. Devolve o número ou null.
-function lerCampo(campos, erros, nome, { max, maxMensagem, inteiro = false, minimo = 0, minimoMensagem } = {}) {
+export function lerCampo(campos, erros, nome, { max, maxMensagem, inteiro = false, minimo = 0, minimoMensagem } = {}) {
   const texto = campos[nome];
   if (texto === undefined || texto === null || String(texto).trim() === '') {
     erros[nome] = 'Preencha este campo.';
