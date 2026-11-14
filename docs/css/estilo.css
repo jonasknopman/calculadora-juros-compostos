@@ -195,6 +195,9 @@ input[aria-invalid="true"] { border-color: var(--red); border-width: 2px; }
   left: -8px;
   right: -8px;
 }
+/* Exceção: o "?" do reajuste fica a 6 px do rótulo da caixa de marcar acima dele; ali a área vai a
+   40 px de altura (44 de largura) para não cobrir essa caixa. */
+#campo-reajuste .dica-botao::after { top: -6px; bottom: -6px; }
 .dica-texto {
   margin: 0 0 8px;
   padding: 10px 12px;
