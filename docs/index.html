@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="css/estilo.css">
   <script src="vendor/chart.umd.min.js"></script>
   <script type="module" src="js/ui.js"></script>
+  <script type="module" src="js/ui_retirada.js"></script>
+  <script type="module" src="js/ui_abas.js"></script>
 </head>
 <body>
   <header class="topo">
@@ -28,6 +30,12 @@
   </section>
 
   <main class="conteudo interno">
+  <div class="abas" role="tablist" aria-label="Escolha o simulador">
+    <button type="button" role="tab" id="aba-juntar" aria-controls="painel-juntar" aria-selected="true">Juntar dinheiro</button>
+    <button type="button" role="tab" id="aba-renda" aria-controls="painel-renda" aria-selected="false" tabindex="-1">Viver de renda</button>
+  </div>
+
+  <div role="tabpanel" id="painel-juntar" aria-labelledby="aba-juntar">
   <div class="grade">
     <form id="formulario" class="cartao" novalidate autocomplete="off">
       <h2 class="titulo-cartao">Seus números</h2>
@@ -215,6 +223,118 @@
         </table>
       </div>
     </section>
+  </div>
+
+  <div role="tabpanel" id="painel-renda" aria-labelledby="aba-renda" hidden>
+  <div class="grade">
+    <form id="formulario-renda" class="cartao" novalidate autocomplete="off">
+      <h2 class="titulo-cartao">Seus números</h2>
+
+      <fieldset class="campo" id="campo-modo-renda">
+        <legend>O que você quer descobrir?</legend>
+        <label class="opcao"><input type="radio" name="modo" value="duracao" checked> Por quanto tempo meu dinheiro dura</label>
+        <label class="opcao"><input type="radio" name="modo" value="valor"> Quanto preciso juntar</label>
+        <label class="opcao"><input type="radio" name="modo" value="retirada"> Quanto posso retirar por mês</label>
+      </fieldset>
+
+      <div class="campo" id="campo-valorInicial-renda" data-modos="duracao retirada">
+        <div class="rotulo-linha">
+          <label for="valorInicial-renda">Quanto tenho investido hoje</label>
+          <button type="button" class="dica-botao" aria-label="Ajuda: valor investido" aria-expanded="false" aria-controls="dica-renda-1">?</button>
+        </div>
+        <p class="dica-texto" id="dica-renda-1" hidden>O dinheiro que você já juntou e vai usar para viver de renda, em reais de hoje.</p>
+        <input id="valorInicial-renda" name="valorInicial" type="text" inputmode="decimal" value="500.000" aria-describedby="erro-renda-valorInicial">
+        <p class="erro" id="erro-renda-valorInicial" aria-live="polite"></p>
+      </div>
+
+      <div class="campo" id="campo-retirada-renda" data-modos="duracao valor">
+        <div class="rotulo-linha">
+          <label for="retirada-renda">Retirada mensal desejada (em reais de hoje, já líquida de imposto)</label>
+          <button type="button" class="dica-botao" aria-label="Ajuda: retirada mensal" aria-expanded="false" aria-controls="dica-renda-2">?</button>
+        </div>
+        <p class="dica-texto" id="dica-renda-2" hidden>Quanto você quer receber por mês, já descontado o imposto, com o poder de compra de hoje. Com o passar dos anos, o valor em reais sobe com a inflação para comprar sempre o mesmo.</p>
+        <input id="retirada-renda" name="retirada" type="text" inputmode="decimal" value="5.000" aria-describedby="erro-renda-retirada">
+        <p class="erro" id="erro-renda-retirada" aria-live="polite"></p>
+      </div>
+
+      <div class="campo" id="campo-prazo-renda" data-modos="valor retirada">
+        <div class="rotulo-linha">
+          <label for="prazo-renda">Prazo das retiradas</label>
+          <button type="button" class="dica-botao" aria-label="Ajuda: prazo das retiradas" aria-expanded="false" aria-controls="dica-renda-3">?</button>
+        </div>
+        <p class="dica-texto" id="dica-renda-3" hidden>Por quanto tempo você quer receber as retiradas. O máximo é 100 anos.</p>
+        <div class="par">
+          <input id="prazo-renda" name="prazo" type="text" inputmode="numeric" value="20" aria-describedby="erro-renda-prazo">
+          <select id="prazoUnidade-renda" name="prazoUnidade" aria-label="Unidade do prazo">
+            <option value="anos" selected>Anos</option>
+            <option value="meses">Meses</option>
+          </select>
+        </div>
+        <p class="erro" id="erro-renda-prazo" aria-live="polite"></p>
+      </div>
+
+      <div class="campo" id="campo-rentabilidade-renda">
+        <div class="rotulo-linha">
+          <label for="rentabilidade-renda">Rentabilidade esperada</label>
+          <button type="button" class="dica-botao" aria-label="Ajuda: rentabilidade" aria-expanded="false" aria-controls="dica-renda-4">?</button>
+        </div>
+        <p class="dica-texto" id="dica-renda-4" hidden>Quanto você espera que o investimento renda por ano. É uma hipótese sua, não uma promessa. “IPCA + %” quer dizer: a inflação mais um percentual fixo.</p>
+        <div class="par">
+          <input id="rentabilidade-renda" name="rentabilidade" type="text" inputmode="decimal" value="11" aria-describedby="erro-renda-rentabilidade">
+          <select id="rentabilidadeTipo-renda" name="rentabilidadeTipo" aria-label="Tipo de rentabilidade">
+            <option value="nominal" selected>% ao ano</option>
+            <option value="ipca_mais">IPCA + % ao ano</option>
+          </select>
+        </div>
+        <p class="erro" id="erro-renda-rentabilidade" aria-live="polite"></p>
+      </div>
+
+      <fieldset class="campo" id="campo-regime-renda" aria-describedby="descricao-regime-renda erro-renda-regime">
+        <legend>Tipo de tributação <button type="button" class="dica-botao" aria-label="Ajuda: tributação" aria-expanded="false" aria-controls="dica-renda-5">?</button></legend>
+        <p class="dica-texto" id="dica-renda-5" hidden>Como o imposto de renda é cobrado neste investimento. Escolha o que mais se parece com o seu.</p>
+        <div id="opcoes-regime-renda"></div>
+        <p class="descricao-regime" id="descricao-regime-renda" aria-live="polite"></p>
+        <p class="erro" id="erro-renda-regime" aria-live="polite"></p>
+      </fieldset>
+    </form>
+
+    <div class="resultados">
+      <section class="cartao cartao-resultado" id="resultado-renda" aria-labelledby="titulo-resultado-renda">
+        <div class="cabeca-resultado">
+          <h2 class="eyebrow" id="titulo-resultado-renda">Resultado</h2>
+          <span class="tag" id="selo-regime-renda"></span>
+        </div>
+        <p class="aviso-erro" id="erro-geral-renda" aria-live="polite" hidden></p>
+        <p class="destaque" id="destaque-renda" aria-live="polite"></p>
+        <div id="avisos-renda"></div>
+        <div id="notas-renda"></div>
+        <dl class="apoio" id="apoio-renda"></dl>
+      </section>
+    </div>
+  </div>
+
+    <section class="cartao" id="cartao-tabela-renda" aria-labelledby="titulo-tabela-renda">
+      <h2 class="titulo-cartao" id="titulo-tabela-renda">Ano a ano</h2>
+      <p class="nota-estreita">Em telas maiores aparecem também o imposto pago e os saldos nominais.</p>
+      <p class="nota" id="nota-tabela-renda" hidden></p>
+      <p class="dica-rolagem" id="dica-rolagem-renda" hidden>Deslize a tabela para o lado para ver mais →</p>
+      <div class="tabela-rolavel" id="rolavel-renda" tabindex="0" role="region" aria-labelledby="titulo-tabela-renda">
+        <table id="tabela-renda">
+          <thead>
+            <tr>
+              <th scope="col">Ano</th>
+              <th scope="col"><span class="rot-longo">Retirado no ano (reais de hoje)</span><span class="rot-curto">Retirado</span></th>
+              <th scope="col">Saldo líquido em reais de hoje</th>
+              <th scope="col" class="so-largo">Imposto pago no ano</th>
+              <th scope="col" class="so-largo">Saldo líquido</th>
+              <th scope="col" class="so-largo">Saldo bruto</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
   </main>
 
   <footer class="rodape">
