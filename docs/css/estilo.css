@@ -183,6 +183,18 @@ input[aria-invalid="true"] { border-color: var(--red); border-width: 2px; }
   cursor: pointer;
 }
 .dica-botao[aria-expanded="true"] { background: var(--green); color: #fff; }
+/* Área de toque de 44 x 44 px sem mudar o desenho de 28 px nem o layout: um pseudo-elemento
+   transparente se estende além do botão. Em cima sobra mais (há margem do campo anterior);
+   embaixo e dos lados fica abaixo do espaço livre, para não cobrir o campo nem o rótulo vizinho. */
+.dica-botao { position: relative; }
+.dica-botao::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  bottom: -6px;
+  left: -8px;
+  right: -8px;
+}
 .dica-texto {
   margin: 0 0 8px;
   padding: 10px 12px;
