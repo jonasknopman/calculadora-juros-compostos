@@ -89,6 +89,26 @@ body {
 
 /* Conteúdo */
 .conteudo { padding-top: 24px; padding-bottom: 40px; }
+
+/* Abas: "Juntar dinheiro" e "Viver de renda" */
+.abas { display: flex; gap: 8px; margin: 0 0 16px; }
+[role="tab"] {
+  flex: 1 1 0;
+  min-height: 44px;
+  padding: 8px 12px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  cursor: pointer;
+}
+[role="tab"][aria-selected="true"] { color: #fff; background: var(--navy); border-color: var(--navy); }
+[role="tabpanel"][hidden] { display: none; }
+@media (min-width: 640px) {
+  .abas { max-width: 480px; }
+}
 .grade { display: block; }
 .resultados { min-width: 0; }
 
@@ -238,6 +258,9 @@ input[aria-invalid="true"] { border-color: var(--red); border-width: 2px; }
 }
 .aviso-erro[hidden] { display: none; }
 
+.nota { margin: 0 0 16px; color: var(--slate); font-size: 14px; }
+.nota[hidden] { display: none; }
+
 .apoio { margin: 0; }
 .apoio div { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
 .apoio div:last-child { border-bottom: 0; }
@@ -310,10 +333,12 @@ thead th {
   .apoio dd { font-size: 16px; font-weight: 700; text-align: left; white-space: normal; }
 
   /* Tabela anual: três colunas inteiras em 360 px, com qualquer fonte sem serifa comum */
-  #cartao-tabela { padding-left: 12px; padding-right: 12px; }
+  #cartao-tabela, #cartao-tabela-renda { padding-left: 12px; padding-right: 12px; }
   table { font-size: 13px; font-variant-numeric: tabular-nums; }
   th, td { padding: 6px; white-space: nowrap; }
   thead th { white-space: normal; font-size: 11px; letter-spacing: 0; }
+  /* Rótulo longo da última linha ("11 anos e 6 meses") quebra, para a tabela da renda caber em 360 px */
+  #tabela-renda tbody th { white-space: normal; }
   .rot-longo, .v-cheio { display: none; }
   .rot-curto, .v-curto { display: inline; }
 }
@@ -332,12 +357,12 @@ thead th {
 
 @media (min-width: 900px) {
   .grade { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 24px; align-items: start; }
-  #formulario { margin-bottom: 0; }
+  #formulario, #formulario-renda { margin-bottom: 0; }
 }
 
 /* O formulário (≈ 870 px) mais o cabeçalho fixo só cabem em janelas de 1000 px ou mais de altura */
 @media (min-width: 900px) and (min-height: 1000px) {
-  #formulario { position: sticky; top: calc(var(--altura-cabecalho) + 3px + 16px); }
+  #formulario, #formulario-renda { position: sticky; top: calc(var(--altura-cabecalho) + 3px + 16px); }
   /* Com as opções avançadas abertas o formulário passa da altura da janela: rola junto */
   #formulario:has(#avancadas[open]) { position: static; }
 }
@@ -345,7 +370,7 @@ thead th {
 /* Modo incorporado (?embed=1): sem cabeçalho e sem hero; o rodapé com o aviso legal fica */
 .embutido .topo, .embutido .hero { display: none; }
 .embutido .conteudo { padding-top: 16px; }
-.embutido #formulario { top: 16px; }
+.embutido #formulario, .embutido #formulario-renda { top: 16px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
